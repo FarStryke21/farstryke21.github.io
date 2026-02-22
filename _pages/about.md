@@ -2,33 +2,48 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: <a href='#'>Carnegie Mellon University</a>. Researcher.
 
 profile:
   align: right
-  image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
+  image: my_image.png
+  image_circular: true 
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>aman.chulawala@gmail.com</p>
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+selected_papers: false 
+social: true
 
 announcements:
-  enabled: true # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  enabled: false
 
 latest_posts:
-  enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+  enabled: false
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+<div class="image-container" style="text-align: center; margin: 20px;">
+  <img src="/al-folio/assets/img/cerlab_main.jpg" alt="Lab Day!" style="max-width: 100%; height: auto; border-radius: 8px;">
+</div>
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+My name is Aman, and I am a full-stack roboticist. I work as a **Researcher at the Computational Engineering and Robotics Lab** at Carnegie Mellon University under **Kenji Shimada**. Here, I work on developing state-of-the-art inspection pipelines using robots, integrate software and hardware so stuff works correctly, deal with a variety of sensors for our project, and pursue my research in making robots smart.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I completed my Master's degree from CMU with a focus on robotics and controls. Part of the research track, my thesis focused on exploring learning-based solutions for coverage viewpoint planning. This webpage houses details on some of my past work. I would be happy to collaborate on exciting projects, so feel free to reach out!
+
+## Education
+
+**Master of Science in Mechanical Engineering (Research)**  
+*Robotics and Controls*  
+Carnegie Mellon University  
+May 2024
+
+**Bachelor of Engineering in Mechanical Engineering**   
+University of Mumbai  
+May 2022
+
+## Work Experience
+
+- **Researcher (Full-Time)** | *Carnegie Mellon University* (June 2024 - Present)
+- **Robotics System Integration Engineer (Intern)** | *Neocis* (May 2023 - Aug 2023)
+- **Graduate Researcher** | *Carnegie Mellon University* (Oct 2022 - May 2024)
+- **CAD and Product Design Intern** | *RoboSlog* (Aug 2021 - Oct 2022)
+- **Structural Lead** | *DJS Racing* (Mar 2021 - May 2022)
