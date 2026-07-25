@@ -1,0 +1,19 @@
+---
+layout: archive
+title: "Writing"
+permalink: /writing/
+author_profile: true
+---
+
+{% assign article_count = site.data.articles | size %}
+
+<p class="lede">
+  Longer-form pieces on robotics, perception, and the messy business of making
+  research work on real hardware. Published on Substack and Medium.
+</p>
+
+{% if article_count > 0 %}
+  {% include article-cards.html %}
+{% else %}
+  <p>Nothing here yet — articles will appear as they are published.</p>
+{% endif %}

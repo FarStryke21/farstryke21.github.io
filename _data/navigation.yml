@@ -1,20 +1,19 @@
-# main links 
-main:    
+# Top navigation. Order here is the order shown in the masthead.
+main:
+  - title: "Research"
+    url: /research/
+
   - title: "Projects"
     url: /projects/
 
-  - title: "Resume"
-    url: /resume/
-
-  - title: "Research"
-    url: /research/
+  - title: "Writing"
+    url: /writing/
 
   - title: "Coursework"
     url: /coursework/
 
   - title: "Formula Student"
     url: /formula_student/
-  
-  # - title: "Certifications"
-  #   url: /certifications/
 
+  - title: "CV"
+    url: /resume/

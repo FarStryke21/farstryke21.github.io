@@ -1,86 +1,16 @@
 ---
-collection: projects
 title: "Building a Diffusion Model"
+collection: projects
+order: 7
+excerpt: "Building diffusion models for 3D vision — from the forward and reverse Markov processes through to text-conditioned 3D object generation."
 image: /images/projects/diffusion_models/diffusion_models.gif
-tags: 
-- Deep Learning
-- Machine Learning 
-- Computer Vision
-background: "#A95C68" 
+tags:
+  - Computer Vision
+  - Deep Learning
 ---
 
-<style>
-    .image-container {
-        text-align: center;
-        margin: 20px;
-    }
-    .image-container img {
-        max-width: 100%;
-        height: auto;
-    }
-    .image-caption {
-        margin-top: 8px;
-        font-size: 16px;
-        color: #555;
-    }
-    h1, h2, h3 {
-        color: #2c3e50;
-    }
-    code {
-        background-color: #f4f4f4;
-        padding: 2px 4px;
-        border-radius: 4px;
-    }
-    pre {
-        background-color: #f4f4f4;
-        padding: 10px;
-        border-radius: 4px;
-        overflow-x: auto;
-    }
-    .equation {
-        font-style: italic;
-        margin: 10px 0;
-    }
-
-    .button-container {
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    }
-
-    .button-group {
-        display: flex;
-        gap: 15px; /* Space between buttons */
-        align-items: center;
-    }
-
-    .icon-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 15px;
-        border: 2px solid black;
-        background-color: white;
-        color: black;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none !important;
-    }
-
-    .icon-button i {
-        margin-right: 8px;
-        font-size: 20px;
-    }
-
-    .icon-button:hover {
-        background-color: black;
-        color: white;
-    }
-</style>
-
-<div class="button-container">
-    <a href="https://github.com/FarStryke21/LearningFor3D_16825/tree/main/assignment4" class="icon-button github-button">
+<div class="btn-row">
+    <a href="https://github.com/FarStryke21/LearningFor3D_16825/tree/main/assignment4" class="btn">
         <i class="fab fa-github"></i>
         <span>GitHub</span>
     </a>
@@ -131,9 +61,9 @@ background: "#A95C68"
 <h3>GSD: View-Guided Gaussian Splatting Diffusion</h3>
 <p>GSD is a diffusion model approach based on Gaussian Splatting (GS) representation for 3D object reconstruction from a single view. It utilizes an unconditional diffusion model to generate 3D objects represented by sets of GS ellipsoids, achieving high-quality 3D structure and texture.</p>
 
-<div class="image-container">
-    <img src="/images/projects/diffusion_models/results.png" alt="Description of the image">
-    <div class="image-caption">Output from my diffusion model. The prompts for the images are given in the first column</div>
+<div class="figure">
+    <img src="/images/projects/diffusion_models/results.png" alt="">
+    <div class="figure__caption">Output from my diffusion model. The prompts for the images are given in the first column</div>
 </div>
 
 <table>

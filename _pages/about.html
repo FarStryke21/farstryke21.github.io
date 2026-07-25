@@ -1,189 +1,176 @@
 ---
+layout: home
 permalink: /
-title: "About Me"
-excerpt: "About me"
-author_profile: true
+title: "Aman Chulawala"
+excerpt: "PhD student at CMU's Computational Engineering and Robotics Lab, working on perception and coverage planning for robotic inspection."
+author_profile: false
 redirect_from:
 - /about/
 - /about.html
 ---
-<!-- Google tag (gtag.js) -->
-<script async
-  src="https://www.googletagmanager.com/gtag/js?id=G-JCYJ06BZRG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-JCYJ06BZRG');
-</script>
+{% include base_path %}
 
-<style>
-  body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 20px;
-  }
-  
-  h1, h2, h3 {
-      color: #333;
-  }
+<header class="hero">
+  <div class="hero__text">
+    <p class="hero__eyebrow">PhD Student · CERLAB · Carnegie Mellon</p>
+    <h1 class="hero__name">Aman Chulawala</h1>
+    <p class="hero__pitch">
+      I am a full-stack roboticist. I build inspection systems that have to work
+      outside the lab — perception, planning, and the hardware integration that
+      holds the two together.
+    </p>
 
-  .education-table {
-      width: 100%;
-      border: none;
-      margin-bottom: 20px;
-  }
-  
-  .education-table td {
-      padding: 10px;
-      vertical-align: top;
-  }
-  
-  .education-table td:nth-child(1) {
-      width: 15%;
-      border: none;
-  }
-  
-  .education-table td:nth-child(2) {
-      width: 60%;
-      border: none;
-  }
-  
-  .education-table td:nth-child(3) {
-      width: 25%;
-      border: none;
-  }
-  
-  
-  /* Style for the Work Experience table */
-  .experience-table {
-      width: 100%;
-      border: none;
-      margin-bottom: 20px;
-  }
-  
-  .experience-table td {
-      padding: 10px;
-      vertical-align: top;
-  }
-  
-  .experience-table td:nth-child(1) {
-      width: 20%;
-      border: none;
-  }
-  
-  .experience-table td:nth-child(2) {
-      width: 40%;
-      border: none;
-  }
-  
-  .experience-table td:nth-child(3) {
-      width: 15%;
-      border: none;
-  }
+    <div class="btn-row">
+      <a class="btn btn--primary" href="{{ base_path }}/research/">Research</a>
+      <a class="btn" href="{{ base_path }}/projects/">Projects</a>
+      <a class="btn" href="{{ base_path }}/resume/">CV</a>
+    </div>
 
-  .experience-table td:nth-child(4) {
-      width: 25%;
-      border: none;
-  }
+    <ul class="hero__social">
+      <li><a href="https://github.com/{{ site.author.github }}"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
+      <li><a href="{{ site.author.googlescholar }}"><i class="ai ai-google-scholar" aria-hidden="true"></i> Scholar</a></li>
+      <li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+      <li><a href="mailto:{{ site.author.email }}"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a></li>
+    </ul>
+  </div>
 
-  .split-text div {
-            margin-bottom: 5px;
-        }
-  
-  .section {
-      margin-bottom: 30px;
-  }
+  <img class="hero__portrait" src="{{ base_path }}/images/my_image.png" alt="Aman Chulawala">
+</header>
 
-  .image-container {
-        text-align: center;
-        margin: 20px;
-    }
-    .image-container img {
-        max-width: 100%;
-        height: auto;
-    }
-    .image-caption {
-        margin-top: 8px;
-        font-size: 16px;
-        color: #555;
-    }
-
-</style>
-
-<div class="image-container">
-  <img src="/images/cerlab_main.jpg"
-    alt="Lab Day!">
-</div>
-
-<section class="section">
+<section class="section" id="about">
+  <div class="section__head">
+    <h2 class="section__title">About</h2>
+  </div>
   <p>
-    My name is Aman, and I am a full-stack roboticist. I work as a <b>Researcher at
-    the Computational Engineering and Robotics Lab</b> at Carnegie Mellon University
-    under <b>Kenji Shimada</b>. Here, I work on developing state of the art
-    inspection pipelines using robots, integrate software and hardware so stuff
-    works correctly, deal with a variety of sensors for our project, and pursue my research in making robots smart.
+    I work at the <b>Computational Engineering and Robotics Lab</b> at Carnegie
+    Mellon University under <b>Kenji Shimada</b>, where my research sits at the
+    intersection of perception and planning: teaching robots to decide
+    <i>where to look</i> in order to inspect a part completely and efficiently.
+    Day to day that means coverage viewpoint planning, pose estimation, point
+    cloud registration, and a good deal of sensor and hardware integration.
   </p>
   <p>
-    I completed my Master’s degree from CMU with a focus on robotics and
-    controls. Part of the research track, my thesis focused on exploring learning based solutions for coverage viewpoint planning. This webpage houses details on some of my  past work. I would be happy to collaborate on exciting projects, so feel free to reach out!
+    Before starting the PhD I completed my Master's at CMU in robotics and
+    controls, with a thesis on learning-based coverage viewpoint planning. I
+    like problems where the algorithm has to survive contact with a real
+    machine. If you are working on something in that space, I would be glad to
+    hear about it — <a href="mailto:{{ site.author.email }}">get in touch</a>.
   </p>
+
+  <div class="figure figure--bleed">
+    <img src="{{ base_path }}/images/cerlab_main.jpg" alt="Aman working with robot arms in the CERLAB lab" loading="lazy">
+    <div class="figure__caption">In the lab at CERLAB, Carnegie Mellon.</div>
+  </div>
 </section>
 
-<section class="section">
-  <h2>Education</h2>
-  <table class="education-table">
-    <tr>
-      <td>May 2024</td>
-      <td>
-        <div class="split-text">
-          <div>Master of Science in Mechanical Engineering (Research)</div>
-          <div><i>Robotics and Controls</i></div>
-        </div>
-      </td>
-      <td>Carnegie Mellon University</td>
-    </tr>
-    <tr>
-      <td>May 2022</td>
-      <td>Bachelor of Engineering in Mechanical Engineering</td>
-      <td>University of Mumbai</td>
-    </tr>
-  </table>
+<section class="section" id="news">
+  <div class="section__head">
+    <h2 class="section__title">News</h2>
+    <a class="section__link" href="{{ base_path }}/news/">All news &rarr;</a>
+  </div>
+  {% include news-list.html limit=5 %}
 </section>
 
-<section class="section">
-  <h2>Work Experience</h2>
-  <table class="experience-table">
-    <tr>
-      <td>June 2024 - Present</td>
-      <td>Researcher</td>
-      <td>Full-Time</td>
-      <td>Carnegie Mellon University</td>
-    </tr>
-    <tr>
-      <td>May 2023 - Aug 2023</td>
-      <td>Robotics System Integration Engineer</td>
-      <td>Internship</td>
-      <td>Neocis</td>
-    </tr>
-    <tr>
-      <td>Oct 2022 - May 2024</td>
-      <td>Graduate Researcher</td>
-      <td>Credits</td>
-      <td>Carnegie Mellon University</td>
-    </tr>
-    <tr>
-      <td>Aug 2021 - Oct 2022</td>
-      <td>CAD and Product Design Intern</td>
-      <td>Internship</td>
-      <td>RoboSlog</td>
-    </tr>
-    <tr>
-      <td>Mar 2021 - May 2022</td>
-      <td>Structual Lead</td>
-      <td>Voluntary</td>
-      <td>DJS Racing</td>
-    </tr>
-  </table>
+{% assign featured_research = site.research | where: "featured", true | sort: "order" %}
+{% if featured_research.size > 0 %}
+<section class="section" id="research">
+  <div class="section__head">
+    <h2 class="section__title">Selected Research</h2>
+    <a class="section__link" href="{{ base_path }}/research/">All research &rarr;</a>
+  </div>
+  {% include entry-cards.html items=featured_research %}
+</section>
+{% endif %}
+
+{% assign featured_projects = site.projects | where: "featured", true | sort: "order" %}
+{% if featured_projects.size > 0 %}
+<section class="section" id="projects">
+  <div class="section__head">
+    <h2 class="section__title">Selected Projects</h2>
+    <a class="section__link" href="{{ base_path }}/projects/">All projects &rarr;</a>
+  </div>
+  {% include entry-cards.html items=featured_projects tags=true %}
+</section>
+{% endif %}
+
+{% assign article_count = site.data.articles | size %}
+{% if article_count > 0 %}
+<section class="section" id="writing">
+  <div class="section__head">
+    <h2 class="section__title">Writing</h2>
+    <a class="section__link" href="{{ base_path }}/writing/">All writing &rarr;</a>
+  </div>
+  {% include article-cards.html limit=3 %}
+</section>
+{% endif %}
+
+<section class="section" id="background">
+  <div class="section__head">
+    <h2 class="section__title">Background</h2>
+    <a class="section__link" href="{{ base_path }}/resume/">Full CV &rarr;</a>
+  </div>
+
+  <h3>Education</h3>
+  <div class="timeline">
+    <div class="timeline__row">
+      <div class="timeline__when">2025 &ndash; Present</div>
+      <div class="timeline__what">
+        <p class="timeline__title">PhD, Mechanical Engineering</p>
+        <p class="timeline__detail">Carnegie Mellon University · CERLAB, advised by Kenji Shimada</p>
+      </div>
+    </div>
+    <div class="timeline__row">
+      <div class="timeline__when">2022 &ndash; 2024</div>
+      <div class="timeline__what">
+        <p class="timeline__title">MS, Mechanical Engineering (Research)</p>
+        <p class="timeline__detail">Carnegie Mellon University · Robotics and Controls</p>
+      </div>
+    </div>
+    <div class="timeline__row">
+      <div class="timeline__when">2018 &ndash; 2022</div>
+      <div class="timeline__what">
+        <p class="timeline__title">BE, Mechanical Engineering</p>
+        <p class="timeline__detail">University of Mumbai</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Experience</h3>
+  <div class="timeline">
+    <div class="timeline__row">
+      <div class="timeline__when">2024 &ndash; Present</div>
+      <div class="timeline__what">
+        <p class="timeline__title">Researcher · Carnegie Mellon University</p>
+        <p class="timeline__detail">Robotic inspection and metrology pipelines at CERLAB.</p>
+      </div>
+    </div>
+    <div class="timeline__row">
+      <div class="timeline__when">Summer 2023</div>
+      <div class="timeline__what">
+        <p class="timeline__title">Robotics System Integration Engineer · Neocis</p>
+        <p class="timeline__detail">Surgical robotics — systems integration and validation.</p>
+      </div>
+    </div>
+    <div class="timeline__row">
+      <div class="timeline__when">2022 &ndash; 2024</div>
+      <div class="timeline__what">
+        <p class="timeline__title">Graduate Researcher · Carnegie Mellon University</p>
+        <p class="timeline__detail">Coverage viewpoint planning and point cloud registration.</p>
+      </div>
+    </div>
+    <div class="timeline__row">
+      <div class="timeline__when">2021 &ndash; 2022</div>
+      <div class="timeline__what">
+        <p class="timeline__title">CAD and Product Design Intern · RoboSlog</p>
+      </div>
+    </div>
+    <div class="timeline__row">
+      <div class="timeline__when">2021 &ndash; 2022</div>
+      <div class="timeline__what">
+        <p class="timeline__title">Structural Lead · DJS Racing</p>
+        <p class="timeline__detail">Formula Student — chassis, composites, and business plan. <a href="{{ base_path }}/formula_student/">More &rarr;</a></p>
+      </div>
+    </div>
+  </div>
 </section>

@@ -1,9 +1,122 @@
 ---
 layout: archive
-title: "Resume"
+title: "CV"
 permalink: /resume/
 author_profile: true
 redirect_from:
   - /resume
+  - /cv/
 ---
-<iframe src="/files/Resume_Aman.pdf" width="100%" height="600px"></iframe>
+
+{% include base_path %}
+
+<p class="lede">
+  A summary is below; the full CV is available as a PDF.
+</p>
+
+<div class="btn-row">
+  <a class="btn btn--primary" href="{{ base_path }}/files/Resume_Aman.pdf" download>
+    <i class="fas fa-download" aria-hidden="true"></i> Download CV (PDF)
+  </a>
+  <a class="btn" href="{{ base_path }}/files/Resume_Aman.pdf" target="_blank" rel="noopener">
+    <i class="fas fa-external-link-alt" aria-hidden="true"></i> Open in new tab
+  </a>
+</div>
+
+<h2>Summary</h2>
+
+<p>
+  Robotics researcher working on perception and planning for automated
+  inspection. Comfortable across the stack — from viewpoint planning and point
+  cloud processing through to sensor integration and deployment on real
+  hardware.
+</p>
+
+<h2>Education</h2>
+
+<div class="timeline">
+  <div class="timeline__row">
+    <div class="timeline__when">2025 &ndash; Present</div>
+    <div class="timeline__what">
+      <p class="timeline__title">PhD, Mechanical Engineering</p>
+      <p class="timeline__detail">Carnegie Mellon University · CERLAB, advised by Kenji Shimada</p>
+    </div>
+  </div>
+  <div class="timeline__row">
+    <div class="timeline__when">2022 &ndash; 2024</div>
+    <div class="timeline__what">
+      <p class="timeline__title">MS, Mechanical Engineering (Research)</p>
+      <p class="timeline__detail">
+        Carnegie Mellon University · Robotics and Controls.
+        Thesis on learning-based coverage viewpoint planning.
+      </p>
+    </div>
+  </div>
+  <div class="timeline__row">
+    <div class="timeline__when">2018 &ndash; 2022</div>
+    <div class="timeline__what">
+      <p class="timeline__title">BE, Mechanical Engineering</p>
+      <p class="timeline__detail">University of Mumbai</p>
+    </div>
+  </div>
+</div>
+
+<h2>Experience</h2>
+
+<div class="timeline">
+  <div class="timeline__row">
+    <div class="timeline__when">2024 &ndash; Present</div>
+    <div class="timeline__what">
+      <p class="timeline__title">Researcher · Carnegie Mellon University</p>
+      <p class="timeline__detail">
+        Robotic inspection and metrology pipelines at CERLAB: viewpoint
+        planning, registration quality metrics, and hardware/software
+        integration across manipulators, mobile bases, and 3D sensors.
+      </p>
+    </div>
+  </div>
+  <div class="timeline__row">
+    <div class="timeline__when">Summer 2023</div>
+    <div class="timeline__what">
+      <p class="timeline__title">Robotics System Integration Engineer · Neocis</p>
+      <p class="timeline__detail">Surgical robotics — systems integration and validation.</p>
+    </div>
+  </div>
+  <div class="timeline__row">
+    <div class="timeline__when">2022 &ndash; 2024</div>
+    <div class="timeline__what">
+      <p class="timeline__title">Graduate Researcher · Carnegie Mellon University</p>
+      <p class="timeline__detail">Coverage viewpoint planning and point cloud registration.</p>
+    </div>
+  </div>
+  <div class="timeline__row">
+    <div class="timeline__when">2021 &ndash; 2022</div>
+    <div class="timeline__what">
+      <p class="timeline__title">CAD and Product Design Intern · RoboSlog</p>
+    </div>
+  </div>
+  <div class="timeline__row">
+    <div class="timeline__when">2021 &ndash; 2022</div>
+    <div class="timeline__what">
+      <p class="timeline__title">Structural Lead · DJS Racing</p>
+      <p class="timeline__detail">
+        Formula Student — chassis design, carbon-fibre composites, and business
+        plan. <a href="{{ base_path }}/formula_student/">Read more &rarr;</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<h2>Full CV</h2>
+
+<object class="doc-embed" data="{{ base_path }}/files/Resume_Aman.pdf" type="application/pdf">
+  <p>Your browser cannot display embedded PDFs.
+     <a href="{{ base_path }}/files/Resume_Aman.pdf">Download the CV instead</a>.</p>
+</object>
+
+<div class="doc-fallback">
+  <p>PDF preview is not available on small screens.</p>
+  <a class="btn btn--primary" href="{{ base_path }}/files/Resume_Aman.pdf">
+    <i class="fas fa-download" aria-hidden="true"></i> Download CV (PDF)
+  </a>
+</div>

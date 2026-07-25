@@ -1,0 +1,304 @@
+/* ==========================================================================
+   Design tokens
+   --------------------------------------------------------------------------
+   Single source of truth for colour, type scale, spacing and radii.
+   Everything downstream reads these custom properties, so dark mode is a
+   matter of re-declaring the palette rather than restyling components.
+   ========================================================================== */
+
+:root {
+  /* Palette — light */
+  --surface        : #ffffff;
+  --surface-raised : #f6f7f9;
+  --surface-sunken : #eceef2;
+  --text           : #15181d;
+  --text-muted     : #59606e;
+  --text-faint     : #878d99;
+  --border         : #e2e5ea;
+  --border-strong  : #c8cdd6;
+  --accent         : #a8192b;
+  --accent-hover   : #85101f;
+  --accent-contrast: #ffffff;
+  --accent-wash    : rgba(168, 25, 43, 0.08);
+
+  --shadow-sm : 0 1px 2px rgba(16, 20, 27, 0.06);
+  --shadow-md : 0 4px 16px rgba(16, 20, 27, 0.08);
+  --shadow-lg : 0 12px 32px rgba(16, 20, 27, 0.12);
+
+  /* Type scale — fluid, no media queries needed */
+  --step--1: clamp(0.82rem, 0.79rem + 0.14vw, 0.89rem);
+  --step-0 : clamp(1rem, 0.96rem + 0.18vw, 1.09rem);
+  --step-1 : clamp(1.2rem, 1.12rem + 0.38vw, 1.44rem);
+  --step-2 : clamp(1.44rem, 1.29rem + 0.72vw, 1.9rem);
+  --step-3 : clamp(1.73rem, 1.48rem + 1.24vw, 2.51rem);
+  --step-4 : clamp(2.07rem, 1.66rem + 2.04vw, 3.31rem);
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  --measure: 68ch;
+  --ease: cubic-bezier(0.2, 0, 0.1, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface        : #0f1116;
+    --surface-raised : #171a21;
+    --surface-sunken  : #1e222b;
+    --text           : #e7e9ee;
+    --text-muted     : #9aa2b1;
+    --text-faint     : #6f7787;
+    --border         : #262b35;
+    --border-strong  : #3a4150;
+    --accent         : #ff7b86;
+    --accent-hover   : #ff9aa2;
+    --accent-contrast: #15181d;
+    --accent-wash    : rgba(255, 123, 134, 0.12);
+
+    --shadow-sm : 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md : 0 4px 16px rgba(0, 0, 0, 0.45);
+    --shadow-lg : 0 12px 32px rgba(0, 0, 0, 0.55);
+  }
+}
+
+/* ==========================================================================
+   Theme bridge
+   --------------------------------------------------------------------------
+   Minimal Mistakes compiles fixed colours into its partials. These rules
+   re-express the handful of surfaces that matter in terms of the tokens
+   above, which is what makes dark mode work site-wide.
+   ========================================================================== */
+
+html {
+  background-color: var(--surface);
+}
+
+body {
+  background-color: var(--surface);
+  color: var(--text);
+  font-size: var(--step-0);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color 0.15s var(--ease);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-hover);
+  }
+
+  &:visited {
+    color: var(--accent);
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: var(--space-6) 0;
+}
+
+/* Masthead ---------------------------------------------------------------- */
+
+.masthead {
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: saturate(1.4) blur(8px);
+}
+
+.greedy-nav {
+  background: transparent;
+
+  a {
+    color: var(--text-muted);
+    font-weight: 500;
+
+    &:hover {
+      color: var(--text);
+    }
+  }
+
+  .visible-links a:before {
+    background: var(--accent);
+    height: 2px;
+  }
+
+  button {
+    background-color: var(--surface-raised);
+
+    .navicon,
+    .navicon:before,
+    .navicon:after {
+      background: var(--text);
+    }
+  }
+
+  .hidden-links {
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+
+    a { color: var(--text-muted); }
+    &:before { border-bottom-color: var(--border); }
+    &:after { border-bottom-color: var(--surface-raised); }
+  }
+}
+
+.masthead__menu-item--lg a {
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Page shell -------------------------------------------------------------- */
+
+.page__content,
+.archive {
+  color: var(--text);
+}
+
+.page__title,
+.archive__subtitle {
+  color: var(--text);
+  border-bottom-color: var(--border);
+}
+
+.page__footer {
+  background-color: var(--surface-raised);
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+
+  a { color: var(--text-muted); }
+  a:hover { color: var(--accent); }
+}
+
+.page__footer-copyright {
+  color: var(--text-faint);
+}
+
+/* Sidebar / author profile ------------------------------------------------ */
+
+.sidebar {
+  color: var(--text-muted);
+
+  h3, .author__name {
+    color: var(--text);
+  }
+}
+
+.author__avatar img {
+  border: 1px solid var(--border);
+}
+
+/* The theme styles this list as a popover for the (now removed) "Follow"
+   button, then flattens it at desktop width. The sidebar only renders at
+   desktop width, so keep it flat — no panel, no arrow, no shadow. */
+.author__urls {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 0;
+
+  &:before,
+  &:after { display: none; }
+
+  li {
+    color: var(--text-muted);
+    padding: 0.15em 0;
+  }
+
+  a { color: var(--text-muted); }
+  a:hover { color: var(--accent); }
+
+  i { margin-right: 0.15em; }
+}
+
+/* The theme hard-codes brand colours on social icons — `.social-icons .fa`
+   is #000 and $github-color is #171516, both invisible against a dark
+   background. Make every icon inherit its label colour instead, so the
+   sidebar and footer stay legible in both themes. */
+.social-icons {
+  .fa,
+  .fas,
+  .fab,
+  .far,
+  [class^="ai-"],
+  [class*=" ai-"] {
+    color: inherit;
+  }
+}
+
+/* Code, tables, quotes ---------------------------------------------------- */
+
+code,
+kbd,
+samp,
+pre {
+  font-size: 0.86em;
+}
+
+.page__content {
+  code:not([class]) {
+    background: var(--surface-sunken);
+    color: var(--text);
+    border-radius: var(--radius-sm);
+    padding: 0.15em 0.4em;
+  }
+
+  pre {
+    background: var(--surface-sunken);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+  }
+
+  blockquote {
+    border-left: 3px solid var(--accent);
+    color: var(--text-muted);
+    font-style: normal;
+  }
+
+  table {
+    border-color: var(--border);
+  }
+
+  td, th {
+    border-color: var(--border);
+  }
+
+  th {
+    background: var(--surface-raised);
+    color: var(--text);
+  }
+
+  tr:nth-child(even) td {
+    background: var(--surface-raised);
+  }
+}

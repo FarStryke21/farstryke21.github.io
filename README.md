@@ -1,25 +1,49 @@
-# Personal Portfolio of Projects
-Hosted at [https://farstryke21.github.io/](https://farstryke21.github.io/)
-### Navigation
-User UI -> _config.yml
+# farstryke21.github.io
 
-Intro Page Update -> _pages/about.md -> Add required data
+Personal academic portfolio — [farstryke21.github.io](https://farstryke21.github.io/)
 
-Available Pages -> _data/navigation.yml -> Update the file with relevant headers
+Jekyll site deployed automatically by GitHub Pages on every push to `master`.
 
-Update Projects -> _pages/projects_and_publications.md -> Get template and add project data
+## Running locally
 
-Resume Update -> files/Resume_Aman.pdf -> Update the file in the folder with the same name
+Requires **Ruby 3.1.x** (see `.ruby-version`). Newer Rubies cannot build this
+site: the `github-pages` gem pins Liquid 4.0.3, which calls `String#tainted?`,
+removed in Ruby 3.2.
 
+```sh
+brew install ruby@3.1
+export PATH="/opt/homebrew/opt/ruby@3.1/bin:$PATH"
 
-A Github Pages template for academic websites. This was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License. See LICENSE.md.
+bundle install
+bundle exec jekyll serve --config _config.yml,_config.dev.yml
+```
 
-I
-## To run locally (not on GitHub Pages, to serve on your own computer)
+Then open http://localhost:4000.
 
-1. Clone the repository and made updates as detailed above
-1. Make sure you have ruby-dev, bundler, and nodejs installed: `sudo apt install ruby-dev ruby-bundler nodejs`
-1. Run `bundle clean` to clean up the directory (no need to run `--force`)
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-1. Run `bundle exec jekyll serve` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
+> Pass `_config.dev.yml` when serving locally. Without it, `site.url` points at
+> the production domain and pages load CSS from the live site instead of your
+> local build.
 
+## Where things live
+
+| I want to change… | Edit |
+|---|---|
+| Homepage (hero, about, background) | `_pages/about.html` |
+| News items | `_data/news.yml` |
+| Substack / Medium articles | `_data/articles.yml` |
+| A project | `_projects/` |
+| A research entry | `_research/` |
+| Top navigation | `_data/navigation.yml` |
+| CV PDF | replace `files/Resume_Aman.pdf` (keep the filename) |
+| Colours, spacing, type | `_sass/_tokens.scss` |
+| Reusable styles | `_sass/_components.scss` |
+
+Front-matter contracts, component reference, and the house rules (no inline
+`<style>`, tokens over hex, theme-specificity gotchas) are documented in
+[`CLAUDE.md`](CLAUDE.md).
+
+## Credits
+
+Forked (then detached) from [academicpages](https://github.com/academicpages/academicpages.github.io),
+itself a fork of the [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/)
+Jekyll theme, © 2016 Michael Rose, MIT licensed. See `LICENSE`.

@@ -1,0 +1,44 @@
+{% comment %}
+  Card grid for a collection (projects / research).
+  Params:
+    include.items    — the collection entries to render
+    include.tags     — "true" to show each entry's tags in the card footer
+    include.filter   — "true" to emit data-tags for the JS filter on /projects/
+{% endcomment %}
+
+<div class="card-grid">
+  {% for entry in include.items %}
+    <article class="card"
+      {% if include.filter %}data-tags="{{ entry.tags | join: '|' }}"{% endif %}>
+      {% if entry.image %}
+        <div class="card__media">
+          <img src="{{ entry.image | relative_url }}" alt="" loading="lazy">
+        </div>
+      {% else %}
+        <div class="card__media card__media--blank" aria-hidden="true">
+          {{ entry.title | slice: 0, 1 }}
+        </div>
+      {% endif %}
+      <div class="card__body">
+        <h3 class="card__title">
+          <a href="{{ entry.url | relative_url }}">{{ entry.title }}</a>
+        </h3>
+        {% if entry.external %}
+          <span class="card__source">External project</span>
+        {% endif %}
+        {% if entry.excerpt %}
+          <p class="card__excerpt">{{ entry.excerpt | strip_html | strip | truncate: 160 }}</p>
+        {% endif %}
+        {% if include.tags and entry.tags.size > 0 %}
+          <div class="card__meta">
+            <ul class="tag-row">
+              {% for tag in entry.tags limit: 3 %}
+                <li class="tag">{{ tag | strip }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </div>
+    </article>
+  {% endfor %}
+</div>

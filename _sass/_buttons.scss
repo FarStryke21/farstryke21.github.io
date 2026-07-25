@@ -11,14 +11,16 @@
   display: inline-block;
   margin-bottom: 0.25em;
   padding: 0.5em 1em;
-  color: #fff !important;
+  /* `!important` removed from color/border: the site's own .btn component in
+     _components.scss needs to be able to restyle these normally. */
+  color: #fff;
   font-family: $sans-serif;
   font-size: $type-size-6;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
   background-color: $primary-color;
-  border: 0 !important;
+  border: 0;
   border-radius: $border-radius;
   cursor: pointer;
 

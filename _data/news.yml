@@ -1,0 +1,34 @@
+# News items, newest first.
+#
+# Each entry:
+#   date: YYYY-MM-DD   — only month + year are displayed
+#   html: "…"          — inline HTML allowed (links, <em>, <b>)
+#
+# To add news, put a new entry at the top. Nothing else needs to change:
+# the homepage shows the 5 most recent, /news/ shows all of them.
+
+- date: 2025-09-01
+  html: >-
+    Started my PhD in Mechanical Engineering at the
+    <a href="https://www.meche.engineering.cmu.edu/faculty/cerlab.html">Computational Engineering and Robotics Lab</a>,
+    Carnegie Mellon University, advised by Kenji Shimada.
+
+- date: 2024-06-01
+  html: >-
+    Joined CERLAB full-time as a Researcher, working on robotic inspection
+    pipelines for additive-manufacturing post-processing.
+
+- date: 2024-05-01
+  html: >-
+    Completed my MS in Mechanical Engineering (Research) at Carnegie Mellon,
+    with a thesis on learning-based coverage viewpoint planning.
+
+- date: 2024-04-01
+  html: >-
+    Presented <a href="/files/Poster_finaldraft.pdf">work on pose estimation</a>
+    at the CMU Mechanical Engineering Masters Research Symposium.
+
+- date: 2023-05-01
+  html: >-
+    Spent the summer at <a href="https://www.neocis.com/">Neocis</a> as a
+    Robotics System Integration Engineer, working on surgical robotics.

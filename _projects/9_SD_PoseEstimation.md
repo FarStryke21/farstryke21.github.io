@@ -1,74 +1,23 @@
 ---
 title: "Pose Estimation through Stable Diffusion"
-excerpt: "Short description of portfolio item number 3 <br/><img src='/images/500x300.png'>"
-image: /images/projects/SD_PoseEstimation/icon.png
-tags: 
-- Machine Learning
-- Deep Learning 
-- Computer Vision
 collection: projects
-background: "#E6E6FA"
+order: 4
+excerpt: "Using Stable Diffusion features for 6-DoF pose estimation of occluded objects, where traditional feature extractors lose the depth cues they depend on."
+image: /images/projects/SD_PoseEstimation/icon.png
+tags:
+  - Computer Vision
+  - Deep Learning
 ---
-<style>
-    .image-container {
-        text-align: center;
-        margin: 20px;
-    }
-    .image-container img {
-        max-width: 100%;
-        height: auto;
-    }
-    .image-caption {
-        margin-top: 8px;
-        font-size: 16px;
-        color: #555;
-    }
-    .button-container {
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    }
 
-    .button-group {
-        display: flex;
-        gap: 15px; /* Space between buttons */
-        align-items: center;
-    }
-
-    .icon-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 15px;
-        border: 2px solid black;
-        background-color: white;
-        color: black;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none !important;
-    }
-
-    .icon-button i {
-        margin-right: 8px;
-        font-size: 20px;
-    }
-
-    .icon-button:hover {
-        background-color: black;
-        color: white;
-    }
-</style>
-
-<div class="button-container">
-    <div class="button-group">
+<div class="btn-row">
+    <div class="btn-group">
         <a href="/files/16825_ProjectReport.pdf"
-         class="icon-button github-button">
+         class="btn">
             <i class="fas fa-file-alt"></i>
             <span>Article</span>
         </a>
         <a href="/files/learning_3dv.pdf"
-         class="icon-button github-button">
+         class="btn">
             <i class="fas fa-file-alt"></i>
             <span>Poster</span>
         </a>
@@ -89,9 +38,9 @@ Our approach involves the following steps:
 
 1. **Data Utilization**: We use the LINEMOD dataset, known for its challenging scenes with occluded and texture-less objects, to train and validate our pose estimation model.
 
-<div class="image-container">
-    <img src="/images/projects/SD_PoseEstimation/templates.png" alt="Description of the image">
-    <div class="image-caption">Template Generation</div>
+<div class="figure">
+    <img src="/images/projects/SD_PoseEstimation/templates.png" alt="">
+    <div class="figure__caption">Template Generation</div>
 </div>
 
 2. **Model Development**: We adapt the Stable Diffusion model to generate training data from diffusion features, simulating scenes often misrepresented in current datasets. This augmentation helps generalize the model.
@@ -99,9 +48,9 @@ Our approach involves the following steps:
 4. **Experimentation and Evaluation**: Comprehensive testing across various metrics, including accuracy and error rates, is performed on seen and unseen data to evaluate model performance. Comparisons with common feature extraction methods highlight the improvements made by our diffusion-based approach.
 5. **Results and Analysis**: We provide detailed analysis of the model’s performance, identifying circumstances where it excels and where it fails, supported by both qualitative and quantitative results.
 
-<div class="image-container">
-    <img src="/images/projects/SD_PoseEstimation/training.png" alt="Description of the image">
-    <div class="image-caption">Training Pipeline</div>
+<div class="figure">
+    <img src="/images/projects/SD_PoseEstimation/training.png" alt="">
+    <div class="figure__caption">Training Pipeline</div>
 </div>
 
 ## Discussion of Results
@@ -113,9 +62,9 @@ Our model demonstrates high accuracy in estimating object poses in clear views a
 
 We have presented a method that utilizes diffusion features for template-based object pose estimation, showing significant improvements over traditional methods. Despite some limitations in high occlusion scenarios, our approach demonstrates enhanced accuracy and robustness in pose estimation tasks. Future work will focus on addressing the failures by developing techniques to better handle occlusions and improve overall model performance.
 
-<div class="image-container">
-    <img src="/images/projects/SD_PoseEstimation/results.png" alt="Description of the image">
-    <div class="image-caption">Results for three Pose Queries</div>
+<div class="figure">
+    <img src="/images/projects/SD_PoseEstimation/results.png" alt="">
+    <div class="figure__caption">Results for three Pose Queries</div>
 </div>
 
 By leveraging diffusion features and advanced datasets, we aim to significantly improve the robustness and accuracy of 3D object pose estimation, even in challenging environments with occlusions and clutter.

@@ -1,67 +1,23 @@
 ---
 title: "Lap Time Optimization for Formula One Cars"
-excerpt: "Short description of portfolio item number 3 <br/><img src='/images/500x300.png'>"
-image: /images/projects/OCRL/icon.png
-tags: 
-- Controls 
-- Simulation
-- Optimization
-- Planning
 collection: projects
-background: "#CCCCFF"
+order: 12
+excerpt: "Optimal control applied to Formula One lap times — solving for the acceleration, braking, and steering inputs that carry a car around a circuit fastest."
+image: /images/projects/OCRL/icon.png
+tags:
+  - Controls
+  - Optimization
+  - Planning
+  - Simulation
 ---
-<style>
-    .image-container {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .responsive-image {
-      height: auto; /* Maintain aspect ratio */
-    }
-    .button-container {
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    }
 
-    .button-group {
-        display: flex;
-        gap: 15px; /* Space between buttons */
-        align-items: center;
-    }
-
-    .icon-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 15px;
-        border: 2px solid black;
-        background-color: white;
-        color: black;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none !important;
-    }
-
-    .icon-button i {
-        margin-right: 8px;
-        font-size: 20px;
-    }
-
-    .icon-button:hover {
-        background-color: black;
-        color: white;
-    }
-</style>
-
-<div class="button-container">
-    <div class="button-group">
-        <a href="https://github.com/FarStryke21/OCRL_Project_Spring2023" class="icon-button github-button">
+<div class="btn-row">
+    <div class="btn-group">
+        <a href="https://github.com/FarStryke21/OCRL_Project_Spring2023" class="btn">
             <i class="fab fa-github"></i>
             <span>GitHub</span>
         </a>
-        <a href="/files/16745_tyagi_gite_kokil_chulawala.pdf" class="icon-button github-button">
+        <a href="/files/16745_tyagi_gite_kokil_chulawala.pdf" class="btn">
             <i class="fas fa-file-alt"></i>
             <span>Article</span>
         </a>
@@ -92,7 +48,7 @@ We are now going to present the Nonlinear Program formulation of our problem to 
 
 
 # Results
-<div class="image-container">
-    <img src="/images/projects/OCRL/results.png" alt="Centered Image" class="responsive-image" style="width: 1fr">
+<div class="figure">
+    <img src="/images/projects/OCRL/results.png" alt="">
 </div>
 

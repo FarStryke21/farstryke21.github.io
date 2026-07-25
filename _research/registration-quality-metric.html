@@ -1,0 +1,80 @@
+---
+title: "Quality Metric for Aligned Point Clouds"
+collection: research
+order: 3
+featured: true
+excerpt: "A quality metric for point cloud registration, so a pipeline can tell whether an alignment is good enough to act on rather than assuming it is."
+image: /images/research/quality_metric/banner.jpg
+redirect_from:
+  - /research/research2/
+---
+
+<p>
+Point cloud registration is a fundamental task in computer vision and robotics that involves aligning two or more point clouds to form a single cloud. It is a critical step in many applications, such as 3D reconstruction, object recognition, and robot localization. The quality of the registration is crucial for the success of these applications, as it directly affects the accuracy of the results drawn from cloud.
+</p>
+
+<p>
+Because of this, it is essential to quantify the registration quality to evaluate the performance of the registration algorithm and compare different methods. Most approaches either use a sum of squared point-to-point distances or point-to-plane measures after alignment.
+</p>
+
+<p>
+The purpose of our research is to expand on the idea of re-projection metrics for alignment quality introduced by Igor Bogoslavskyi and Cyrill Stachniss.
+</p>
+
+<h2>Getting some context</h2>
+<p>
+When we think of registration, one of the most successful algorithm is the Iterative Closest Point (ICP) algorithm. The ICP algorithm iteratively aligns two point clouds by minimizing the distance between the corresponding points. The quality of the registration is often evaluated by measuring the distance between the aligned points, which is known as the re-projection error.
+</p>
+<div class="figure">
+    <img src="/images/research/quality_metric/car_cloud.png" alt="" style="width: 650px">
+</div>
+<p>
+Take an example of the car point clouds seen above. On the left we have an example of a good alignment, and on the right we can see a bad alignment. The alignment quality is often depended on factors like point cloud density, tunable parameters, and noise seen in the cloud.
+</p>
+
+<p>
+Most existing metrics like the Mahalanobis distance, the Hausdorff distance, and the Chamfer distance are used to evaluate the quality of the registration. However, these metrics are not always suitable for evaluating the quality of the registration, as they fail to be compatible across point clouds with different densities and noise levels.
+</p>
+
+<h2>Our Approach</h2>
+
+<p>
+Our approach is completely agnostic to the used alignment method as long as it computes the 3D transformation between the sensor poses at scanning time. Unlike the work of Bogoslavskyi et al, we focus on developing the algorithm specifically for static environments and dense point clouds.
+</p>
+<div class="figure">
+    <img src="/images/research/quality_metric/projection.png" alt="" style="width: 400px">
+</div>
+<p>
+When checking the alignment of two point clouds, each point cloud is projected on an image plane defined at the point cloud coordinate frame. Two point clouds and their two coordinate frames result in four reprojected images as shown in the image below. This leads to four projected depth images I11, I12, I21, and I22, where Ici refers to the projection of the cloud Cc into the first or second image plane (index i). Each pixel in Ici stores the distance between the 3D point in Cc and the origin Oi. 
+</p>
+
+<div class="figure">
+    <img src="/images/research/quality_metric/image_planes.png" alt="" style="width: 650px">
+</div>
+
+<p>
+The analysis relies on comparing the depth images I11 to I21 and I12 to I22. We estimate the probability of points in the two images being reprojections of the same point in the clouds. This results in an array of votes provided by all eligible points. Opinion pooling gives us an average value lying between 0 and 1, which describes how good the alignment is. Higher the value, better the alignment. In most physical cases, we see 0.8 as a good alignment.
+</p>
+
+<div class="figure">
+    <img src="/images/research/quality_metric/results.png" alt="" style="width: 650px">
+</div>
+<p>
+The final alignment quality is highly sensitive to misalignment. To benchmark the performance, we introduced unit translation and rotation errors to an alignment set created using ICP. Even the slightest misalignment sees an immediate drop in the metric.
+</p>
+
+<div class="figure">
+    <img src="/images/research/quality_metric/sensitivity.png" alt="" style="width: 650px">
+</div>
+<h2>Implementation</h2>
+
+<p>
+The current version of the pose estimation pipeline is implemented in Python using the Open3D library along with our in-house ROS bindings for point cloud data. The current implementation takes on average 3.3 seconds to capture the rough scan for the quality module, and the quality assignment engine provides a result in under 5 seconds. The entire pipeline can provide a pose estimate in under 8 seconds, and is currently available as a ROS Node for use in ROS based systems.
+</p>
+
+<div class="figure">
+    <img src="/images/research/quality_metric/example_result.png" alt="" style="width: 650px">
+</div>
+<p>
+Future work includes improving the performance by leveraging the Point Cloud Library (PCL) for feature extraction and aligning. The feature extraction process make it an ideal candidate for GPU processing. The final objective is to have a pose estimate rate of 1 Hz or more for realtime quality analysis in dynamic environments.
+</p>

@@ -12,6 +12,11 @@ source "https://rubygems.org"
 gem "github-pages", group: :jekyll_plugins
 
 gem "webrick"
+
+# NOTE: requires Ruby 3.1.x — see .ruby-version. The github-pages gem pins
+# Liquid 4.0.3, which calls String#tainted?; that method was removed in
+# Ruby 3.2, so newer Rubies cannot build this site.
+
 # If you want to use Jekyll native, uncomment the line below.
 # To upgrade, run `bundle update`.
 

@@ -1,0 +1,21 @@
+# Articles published on Substack / Medium, newest first.
+#
+# Each entry:
+#   title:   required
+#   url:     required — the canonical link on Substack or Medium
+#   date:    YYYY-MM-DD, required — cards sort by this
+#   source:  "Substack" or "Medium" — drives the badge on the card
+#   image:   optional — a local path under /images/writing/. Without it the
+#            card falls back to a typographic tile, which is a fine look.
+#   excerpt: optional — one or two sentences
+#
+# The /writing/ page and the homepage strip both hide themselves entirely
+# when this file has no entries, so it is safe to leave empty.
+
+# - title: "Why coverage planning is harder than it looks"
+#   url: https://example.substack.com/p/coverage-planning
+#   date: 2026-03-14
+#   source: Substack
+#   image: /images/writing/coverage-planning.png
+#   excerpt: >-
+#     A short teaser that shows up under the title on the preview card.

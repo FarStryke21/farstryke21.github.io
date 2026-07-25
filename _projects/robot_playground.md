@@ -1,98 +1,26 @@
 ---
-collection: projects
 title: "Robot Sandbox"
+collection: projects
+order: 15
+excerpt: "Starter code for students new to robotics — manipulators, ground vehicles, and drones, each with kinematics, control, and a simulation environment ready to run."
 image: /images/projects/robot_playground/robot_playground.png
-tags: 
-- Robotics
-- Controls 
-- Planning
-- Simulation
-background: "#A95C68" 
+tags:
+  - Robotics
+  - Controls
+  - Planning
+  - Simulation
 ---
-<style>
-    h1, h2 {
-        color: #2c3e50;
-    }
-    .project {
-        margin-bottom: 30px;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 20px;
-    }
-    .project:last-child {
-        border-bottom: none;
-    }
-    .image-container {
-        text-align: center;
-        margin: 20px;
-    }
-    .image-container img {
-        max-width: 100%;
-        height: auto;
-    }
-    .image-caption {
-        margin-top: 8px;
-        font-size: 16px;
-        color: #555;
-    }
-    .video-container {
-        text-align: center;
-        margin: 20px;
-    }
-    .video-container video {
-        max-width: 100%;
-        height: auto;
-    }
-    .video-caption {
-        margin-top: 8px;
-        font-size: 16px;
-        color: #555;
-    }
-    .button-container {
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    }
 
-    .button-group {
-        display: flex;
-        gap: 15px; /* Space between buttons */
-        align-items: center;
-    }
-
-    .icon-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 15px;
-        border: 2px solid black;
-        background-color: white;
-        color: black;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none !important;
-    }
-
-    .icon-button i {
-        margin-right: 8px;
-        font-size: 20px;
-    }
-
-    .icon-button:hover {
-        background-color: black;
-        color: white;
-    }
-</style>
  
- <div class="button-container">
-    <div class="button-group">
+ <div class="btn-row">
+    <div class="btn-group">
         <a href="https://github.com/FarStryke21/MobileRobot_Sandbox"
-         class="icon-button github-button">
+         class="btn">
             <i class="fab fa-github"></i>
             <span>UGV</span>
         </a>
         <a href="https://github.com/FarStryke21/arm_ws"
-         class="icon-button github-button">
+         class="btn">
             <i class="fab fa-github"></i>
             <span>Manipulator</span>
         </a>

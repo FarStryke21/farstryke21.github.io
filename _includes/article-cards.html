@@ -1,0 +1,45 @@
+{% comment %}
+  Preview cards for external articles from _data/articles.yml.
+  Params:
+    include.limit — optional, max number of articles to show
+  Renders nothing at all when the data file is empty.
+{% endcomment %}
+
+{% assign articles = site.data.articles | sort: "date" | reverse %}
+{% if include.limit %}
+  {% assign articles = articles | slice: 0, include.limit %}
+{% endif %}
+
+{% if articles.size > 0 %}
+  <div class="card-grid">
+    {% for article in articles %}
+      <article class="card">
+        {% if article.image %}
+          <div class="card__media">
+            <img src="{{ article.image | relative_url }}" alt="" loading="lazy">
+          </div>
+        {% else %}
+          <div class="card__media card__media--blank" aria-hidden="true">
+            {{ article.source | default: "Writing" | slice: 0, 1 }}
+          </div>
+        {% endif %}
+        <div class="card__body">
+          {% if article.source %}
+            <span class="card__source">{{ article.source }}</span>
+          {% endif %}
+          <h3 class="card__title">
+            <a href="{{ article.url }}" target="_blank" rel="noopener">{{ article.title }}</a>
+          </h3>
+          {% if article.excerpt %}
+            <p class="card__excerpt">{{ article.excerpt | strip_html | strip | truncate: 160 }}</p>
+          {% endif %}
+          {% if article.date %}
+            <div class="card__meta">
+              <time datetime="{{ article.date | date: '%Y-%m-%d' }}">{{ article.date | date: "%b %-d, %Y" }}</time>
+            </div>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+{% endif %}

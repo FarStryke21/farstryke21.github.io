@@ -1,0 +1,23 @@
+{% comment %}
+  Renders news entries from _data/news.yml, newest first.
+  Params:
+    include.limit — optional, max number of entries to show
+{% endcomment %}
+
+{% assign news_items = site.data.news | sort: "date" | reverse %}
+{% if include.limit %}
+  {% assign news_items = news_items | slice: 0, include.limit %}
+{% endif %}
+
+{% if news_items.size > 0 %}
+  <ul class="news">
+    {% for item in news_items %}
+      <li class="news__item">
+        <div class="news__date">
+          <time datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: "%b %Y" }}</time>
+        </div>
+        <div class="news__body">{{ item.html }}</div>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

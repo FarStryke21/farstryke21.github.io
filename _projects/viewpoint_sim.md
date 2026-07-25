@@ -1,82 +1,20 @@
 ---
-collection: projects
 title: "Viewpoint Simulation for Coverage Planning"
+collection: projects
+order: 1
+featured: true
+excerpt: "A ROS package for simulating and benchmarking coverage viewpoint planning algorithms against arbitrary 3D parts."
 image: /images/projects/viewpoint_sim/viewpoint_sim.png
-tags: 
-- Inspection
-- Planning
-- Simulation
-background: "#A95C68" 
+tags:
+  - Inspection
+  - Planning
+  - Simulation
 ---
-<style>
-    h1, h2 {
-        color: #2c3e50;
-    }
-     .image-container {
-        text-align: center;
-        margin: 20px;
-    }
-    .image-container img {
-        max-width: 100%;
-        height: auto;
-    }
-    .image-caption {
-        margin-top: 8px;
-        font-size: 16px;
-        color: #555;
-    }
-    code {
-        background-color: #f4f4f4;
-        padding: 2px 4px;
-        border-radius: 4px;
-    }
-    pre {
-        background-color: #f4f4f4;
-        padding: 10px;
-        border-radius: 4px;
-        overflow-x: auto;
-    }
-    .button-container {
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    }
 
-    .button-group {
-        display: flex;
-        gap: 15px; /* Space between buttons */
-        align-items: center;
-    }
-
-    .icon-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 15px;
-        border: 2px solid black;
-        background-color: white;
-        color: black;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none !important;
-    }
-
-    .icon-button i {
-        margin-right: 8px;
-        font-size: 20px;
-    }
-
-    .icon-button:hover {
-        background-color: black;
-        color: white;
-    }
-</style>
-
-<div class="button-container">
-    <div class="button-group">
+<div class="btn-row">
+    <div class="btn-group">
         <a href="https://github.com/FarStryke21/viewpoint_planning"
-         class="icon-button github-button">
+         class="btn">
             <i class="fab fa-github"></i>
             <span>Github</span>
         </a>
@@ -88,9 +26,9 @@ background: "#A95C68"
 
 <p>The <code>viewpoint_planning</code> package provides a ROS-based framework to spawn a sensor in a Gazebo simulation environment and capture depth and color images from various poses. This package includes the URDF model of the sensor, necessary plugins for depth and color image capturing, and a ROS service to manage the sensor's pose and data capture.</p>
 
-<div class="image-container">
-    <img src="/images/projects/viewpoint_sim/registered.png" alt="Description of the image">
-    <div class="image-caption">Quickly test out Coverage Viewpoint Planning strategies for complex strategies</div>
+<div class="figure">
+    <img src="/images/projects/viewpoint_sim/registered.png" alt="">
+    <div class="figure__caption">Quickly test out Coverage Viewpoint Planning strategies for complex strategies</div>
 </div>
 <p>This package is meant as a wrapper for simulating the results of algorithms designed for solving the Coverage Viewpoint Problem.</p>
 
@@ -128,9 +66,9 @@ source devel/setup.bash</code></pre>
 <p>Define the Gazebo model for your target object in the <code>gazebo_models</code> directory. Call the model using the appropriate rosservice.</p>
 <pre><code>rosservice call /load_mesh "mesh_file: 'test_bunny'"</code></pre>
 
-<div class="image-container">
-    <img src="/images/projects/viewpoint_sim/gazebo.png" alt="Description of the image">
-    <div class="image-caption">Stanford Bunny Spawned in the environment. We are using the Zivid 2+ as our choice of sensor.</div>
+<div class="figure">
+    <img src="/images/projects/viewpoint_sim/gazebo.png" alt="">
+    <div class="figure__caption">Stanford Bunny Spawned in the environment. We are using the Zivid 2+ as our choice of sensor.</div>
 </div>
 
 <h3>Set initial pose</h3>
@@ -143,9 +81,9 @@ source devel/setup.bash</code></pre>
 <pre><code>rosservice call /capture_surface</code></pre>
 <p>This publishes two pointclouds, <code>\current_measurement</code> which provides the last captured surface, and <code>\accumulated_surface</code> which provides the combined surface clouds. The messages are only published during service calls.</p>
 
-<div class="image-container">
-    <img src="/images/projects/viewpoint_sim/rviz.png" alt="Description of the image">
-    <div class="image-caption">Preregistered scans in RViz</div>
+<div class="figure">
+    <img src="/images/projects/viewpoint_sim/rviz.png" alt="">
+    <div class="figure__caption">Preregistered scans in RViz</div>
 </div>
 
 <h2>Files and Directories</h2>

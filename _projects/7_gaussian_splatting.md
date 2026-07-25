@@ -1,88 +1,18 @@
 ---
-collection: projects
 title: "Gaussian Splatting"
+collection: projects
+order: 5
+excerpt: "A simplified 3D Gaussian rasterization pipeline built from scratch in PyTorch, covering projection, sorting, and alpha compositing."
 image: /images/projects/gaussian_splatting/gaussian_splatting.gif
-tags: 
-- Deep Learning
-- Machine Learning 
-- Computer Vision
-background: "#A95C68" 
+tags:
+  - Computer Vision
+  - Deep Learning
 ---
 
-
-<style>
-    .image-container {
-        text-align: center;
-        margin: 20px;
-    }
-    .image-container img {
-        max-width: 100%;
-        height: auto;
-    }
-    .image-caption {
-        margin-top: 8px;
-        font-size: 16px;
-        color: #555;
-    }
-    h1, h2 {
-        color: #2c3e50;
-    }
-    code {
-        background-color: #f4f4f4;
-        padding: 2px 4px;
-        border-radius: 4px;
-    }
-    pre {
-        background-color: #f4f4f4;
-        padding: 10px;
-        border-radius: 4px;
-        overflow-x: auto;
-    }
-    .equation {
-        font-style: italic;
-        margin: 10px 0;
-    }
-    .button-container {
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    }
-
-    .button-group {
-        display: flex;
-        gap: 15px; /* Space between buttons */
-        align-items: center;
-    }
-
-    .icon-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 15px;
-        border: 2px solid black;
-        background-color: white;
-        color: black;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none !important;
-    }
-
-    .icon-button i {
-        margin-right: 8px;
-        font-size: 20px;
-    }
-
-    .icon-button:hover {
-        background-color: black;
-        color: white;
-    }
-</style>
-
-<div class="button-container">
-    <div class="button-group">
+<div class="btn-row">
+    <div class="btn-group">
         <a href="https://github.com/FarStryke21/LearningFor3D_16825/tree/main/assignment4"
-         class="icon-button github-button">
+         class="btn">
             <i class="fab fa-github"></i>
             <span>GitHub</span>
         </a>
@@ -112,8 +42,8 @@ background: "#A95C68"
 
 <p>After implementing the rasterizer, we test it by rendering views of a scene represented by pre-trained 3D Gaussians. Here is one frame of the GIF output:</p>
 
-<div class="image-container">
-    <img src="/images/projects/gaussian_splatting/q1_render.gif" alt="Description of the image">
+<div class="figure">
+    <img src="/images/projects/gaussian_splatting/q1_render.gif" alt="">
 </div>
 
 <h2>Training 3D Gaussian Representations</h2>
@@ -128,14 +58,14 @@ background: "#A95C68"
 <p>After training, we obtain the following training progress GIF:</p>
 
 
-<div class="image-container">
-    <img src="/images/projects/gaussian_splatting/q1_training_progress.gif" alt="Description of the image">
+<div class="figure">
+    <img src="/images/projects/gaussian_splatting/q1_training_progress.gif" alt="">
 </div>
 
 <p>And the final rendering GIF:</p>
 
-<div class="image-container">
-    <img src="/images/projects/gaussian_splatting/q1_training_final_renders.gif" alt="Description of the image">
+<div class="figure">
+    <img src="/images/projects/gaussian_splatting/q1_training_final_renders.gif" alt="">
 </div>
 
 <h2>Extensions</h2>
@@ -146,12 +76,12 @@ background: "#A95C68"
 <p>We train 3D Gaussians on a more challenging scene with randomly initialized points for the 3D Gaussian means. We experiment with techniques to improve performance, such as different learning rates, learning rate scheduling, SSIM loss, adaptive density control, initialization parameters, and using anisotropic Gaussians.</p>
 
 
-<div class="image-container">
-    <img src="/images/projects/gaussian_splatting/q1_harder_training_progress.gif" alt="Description of the image">
+<div class="figure">
+    <img src="/images/projects/gaussian_splatting/q1_harder_training_progress.gif" alt="">
 </div>
 
-<div class="image-container">
-    <img src="/images/projects/gaussian_splatting/q1_harder_training_final_renders.gif" alt="Description of the image">
+<div class="figure">
+    <img src="/images/projects/gaussian_splatting/q1_harder_training_final_renders.gif" alt="">
 </div>
 
 
