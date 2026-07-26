@@ -708,6 +708,27 @@
   margin-bottom: var(--space-7);
 }
 
+/* The theme puts a border and a large size on every h2 in the content well.
+   Semester headings are labels, not section titles, so both are undone here. */
+.page__content .semester__title,
+.archive .semester__title,
+.semester__title {
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0 0 var(--space-2);
+  padding: 0;
+  border: 0;
+}
+
+.courses {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .course {
   padding: var(--space-4) 0;
   border-top: 1px solid var(--border);
@@ -717,24 +738,88 @@
   }
 }
 
-.course-title {
+.course__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-3);
+}
+
+.course__code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--step--1);
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.page__content .course__name,
+.archive .course__name,
+.course__name {
   font-weight: 700;
   font-size: var(--step-0);
   color: var(--text);
-  margin-bottom: var(--space-2);
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
-.course-description {
+/* Pushed to the trailing edge on one line; wraps underneath when the row runs
+   out of room, which is what happens on a phone. */
+.course__prof {
+  margin-left: auto;
+  font-size: var(--step--1);
   color: var(--text-muted);
-  font-size: var(--step--1);
-  line-height: 1.6;
-  max-width: var(--measure);
-  margin-bottom: var(--space-2);
 }
 
-.professor {
+/* Instructor names are the most useful thing on this page for an academic
+   reader, so they stay dark and unadorned — the theme's red underlined link
+   treatment on every row reads as a page full of buttons. */
+.page__content .course__prof a,
+.archive .course__prof a,
+.course__prof a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s var(--ease), border-color 0.15s var(--ease);
+
+  &:hover,
+  &:focus {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+}
+
+.course__outputs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-4);
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  list-style: none;
   font-size: var(--step--1);
-  color: var(--text-faint);
+
+  &:before {
+    content: "\2192";
+    color: var(--text-faint);
+  }
+}
+
+/* `.page__content a` and `.archive a` both underline links outright, so these
+   need matching specificity to carry the quieter treatment. */
+.page__content .course__outputs a,
+.archive .course__outputs a,
+.course__outputs a {
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-strong);
+  transition: color 0.15s var(--ease), border-color 0.15s var(--ease);
+
+  &:hover,
+  &:focus {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
 }
 
 /* Utilities --------------------------------------------------------------- */

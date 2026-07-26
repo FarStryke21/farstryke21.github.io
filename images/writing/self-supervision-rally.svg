@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-labelledby="t d">
+  <title id="t">The self-supervised learning rally, 2019–2021</title>
+  <desc id="d">A bouncing-ball timeline alternating between Meta AI and Google/DeepMind: MoCo (Nov 2019), SimCLR (Feb 2020), BYOL (Jun 2020), SwAV (Jun 2020) and DINO (Apr 2021).</desc>
+
+  <style><![CDATA[
+    /* These mirror _sass/_tokens.scss. An SVG loaded through an img element
+       renders in an isolated context and cannot read custom properties from
+       the page, so the palette has to be restated here — but its own
+       prefers-color-scheme query still fires, which is what keeps the graphic
+       legible in dark mode. If the palette in _tokens.scss changes, change it
+       here too. */
+    :root {
+      --bg    : #eceef2;
+      --line  : #c8cdd6;
+      --text  : #15181d;
+      --muted : #59606e;
+      --accent: #a8192b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg    : #1e222b;
+        --line  : #3a4150;
+        --text  : #e7e9ee;
+        --muted : #9aa2b1;
+        --accent: #ff7b86;
+      }
+    }
+    .lbl  { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .name { font-size: 42px; font-weight: 700; fill: var(--text); letter-spacing: -0.01em; }
+    .date { font-size: 29px; font-weight: 400; fill: var(--muted); }
+    .meta { font-size: 25px; font-weight: 600; fill: var(--muted); letter-spacing: 0.09em; }
+  ]]></style>
+
+  <rect width="1200" height="750" fill="var(--bg)"/>
+
+  <!-- the net -->
+  <line x1="40" y1="420" x2="1160" y2="420" stroke="var(--line)" stroke-width="2" stroke-dasharray="7 9"/>
+
+  <!-- the rally: each apex is a paper, each side of the net a lab -->
+  <path d="M 50 420 Q 160 180 270 420 Q 380 660 490 420 Q 600 660 710 420 Q 820 180 930 420 Q 1040 180 1150 420"
+        fill="none" stroke="var(--accent)" stroke-width="3.5" stroke-linecap="round" opacity="0.85"/>
+
+  <text class="lbl meta" x="60" y="78">SELF-SUPERVISED LEARNING · 2019–2021</text>
+  <text class="lbl meta" x="1140" y="78" text-anchor="end">▲ META AI · FAIR</text>
+  <text class="lbl meta" x="1140" y="702" text-anchor="end">▼ GOOGLE · DEEPMIND</text>
+
+  <!-- Meta, above the net -->
+  <g text-anchor="middle">
+    <text class="lbl name" x="160" y="230">MoCo</text>
+    <text class="lbl date" x="160" y="266">Nov 2019</text>
+    <circle cx="160" cy="300" r="8" fill="var(--accent)"/>
+
+    <text class="lbl name" x="820" y="230">SwAV</text>
+    <text class="lbl date" x="820" y="266">Jun 2020</text>
+    <circle cx="820" cy="300" r="8" fill="var(--accent)"/>
+
+    <text class="lbl name" x="1040" y="230">DINO</text>
+    <text class="lbl date" x="1040" y="266">Apr 2021</text>
+    <circle cx="1040" cy="300" r="16" fill="none" stroke="var(--accent)" stroke-width="2.5" opacity="0.45"/>
+    <circle cx="1040" cy="300" r="9" fill="var(--accent)"/>
+  </g>
+
+  <!-- Google, below the net -->
+  <g text-anchor="middle">
+    <circle cx="380" cy="540" r="8" fill="var(--accent)"/>
+    <text class="lbl date" x="380" y="580">Feb 2020</text>
+    <text class="lbl name" x="380" y="622">SimCLR</text>
+
+    <circle cx="600" cy="540" r="8" fill="var(--accent)"/>
+    <text class="lbl date" x="600" y="580">Jun 2020</text>
+    <text class="lbl name" x="600" y="622">BYOL</text>
+  </g>
+</svg>

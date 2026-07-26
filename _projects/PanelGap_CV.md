@@ -13,46 +13,63 @@ tags:
 
 <div class="btn-row">
     <div class="btn-group">
-        <a href="https://github.com/FarStryke21/Panel_Gap_Detection"
-         class="btn">
+        <a href="https://github.com/FarStryke21/Panel_Gap_Detection" class="btn">
             <i class="fab fa-github"></i>
             <span>GitHub</span>
         </a>
     </div>
 </div>
-## Problem Statement
 
-Panel gaps in automotives can lead to increased aerodynamic drag, reducing fuel efficiency and causing unwanted noise at high speeds. They may also allow water and debris to enter, potentially leading to rust and damage to internal components. Additionally, noticeable panel gaps can negatively impact the vehicle's aesthetic appeal and perceived build quality.
+The gaps between a car's body panels are a quality signal. Too wide and they add
+drag, whistle at speed, and let in water and grit; uneven and they read as poor
+build quality before a customer has opened a door. Measuring them is still
+largely a manual job with feeler gauges.
 
 <div class="figure">
     <img src="/images/projects/PanelGap_CV/Contours.png" alt="">
-    <div class="figure__caption">Panel Gaps in Cars</div>
+    <div class="figure__caption">Panel gaps recovered as contours.</div>
 </div>
 
-The objective of this project was to develop a tool which can be deployed in industries to automate the process of quality metrology of automotive panel gaps. To make things interesting, we only stuck to traditional Computer Vision methods. No machine learning!
+The goal was a tool that measures those gaps from a camera instead. The
+self-imposed constraint was to do it with classical computer vision only — no
+machine learning anywhere in the pipeline — which keeps the whole thing
+inspectable: every measurement can be traced back to a threshold and a contour
+rather than to a set of weights.
 
 ## Approach
 
-The project aimed to develop a computer vision system capable of detecting and measuring panel gaps using a camera. The solution involved capturing images of a car's exterior, running panel gap detection software on these images, and creating a 2D or 3D model of the car to visualize and analyze the gaps. Key technical methods included global thresholding, contour detection, image masking, structure from motion, and point cloud coordinate logging. The system could measure the panel gaps and compare them against expected values to identify defects.
+Images of the vehicle exterior go through global thresholding and contour
+detection to isolate the gap edges, with masking to suppress everything that
+isn't a panel seam. Structure from motion across multiple views recovers the
+geometry, and the gap coordinates are logged into a point cloud so measurements
+can be taken in 3D rather than in pixels.
 
 <div class="figure">
     <img src="/images/projects/PanelGap_CV/measurements.jpg" alt="">
-    <div class="figure__caption">Measuring the Panel Gaps</div>
+    <div class="figure__caption">Gap widths measured along a seam.</div>
 </div>
 
 ## Results
 
+The system measures gap widths along each seam and compares them against
+expected values, colour-mapping the variation so a whole panel can be read at a
+glance. Tolerances are configurable, and gaps falling outside them are flagged
+as defective.
+
 <div class="figure">
     <img src="/images/projects/PanelGap_CV/panel_detect.png" alt="">
-    <div class="figure__caption">Gradient Identification of error areas</div>
+    <div class="figure__caption">Deviation from expected gap width, rendered as a gradient.</div>
 </div>
-
-The system successfully measured panel gaps, provided color mapping to visualize variations, and allowed setting quality assurance tolerances. It classified panel gaps as acceptable or defective based on predefined thresholds. Future improvements include enhancing depth mapping, point cloud generation, and adding classification functionality to isolate non-panel gap features. This automated approach offers significant potential for improving quality control in automotive manufacturing, reducing costs, and enhancing production processes.
 
 <div class="figure">
     <video controls>
         <source src="/images/projects/PanelGap_CV/Demo.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <div class="figure__caption">Demonstration of the mobile version in realtime</div>
+    <div class="figure__caption">The mobile version measuring in real time.</div>
 </div>
+
+The clearest limitation is discrimination: the pipeline finds gap-shaped
+features, and anything else gap-shaped — a trim line, a shadow — has to be
+excluded by hand. Separating those automatically, and improving the depth
+mapping behind the point cloud, are the obvious next steps.

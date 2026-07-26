@@ -19,3 +19,30 @@
 #   image: /images/writing/coverage-planning.png
 #   excerpt: >-
 #     A short teaser that shows up under the title on the preview card.
+
+- title: "Setting up a new Universal Robot with ROS"
+  url: https://medium.com/robots-and-you/setting-up-a-new-universal-robot-with-ros-c95a80fc22bb?sk=7868a78341ba7de7e9d0a26f1e2f513d
+  date: 2024-09-07
+  source: Medium
+  image: /images/writing/ur-ros-setup.svg
+  excerpt: >-
+    The setup guide that did not exist: getting a UR5e talking to ROS and
+    MoveIt, with the scattered pieces collected in one place.
+
+- title: "Moving Robot Arms: A not so gentle introduction to manipulator trajectories in ROS"
+  url: https://medium.com/robots-and-you/moving-robot-arms-a-not-so-gentle-introduction-to-manipulator-trajectories-in-ros-ea69283c0f3c?sk=dec9d7154a10e7e49a8097f0bd408a49
+  date: 2025-02-01
+  source: Medium
+  image: /images/writing/manipulator-trajectory.svg
+  excerpt: >-
+    What a trajectory actually is once you get past the planner: timestamped
+    waypoints, velocities and accelerations, and how ROS hands them to a UR5e.
+
+- title: "The Crucible of Self-Supervision"
+  url: https://farstryke21.substack.com/p/the-crucible-of-self-supervision
+  date: 2026-07-01
+  source: Substack
+  image: /images/writing/self-supervision-rally.svg
+  excerpt: >-
+    What looked like a tennis match between Meta and Google turned out to be a
+    field-wide conversation — the 24-month sprint that rewrote computer vision.

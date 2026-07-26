@@ -10,67 +10,72 @@ tags:
   - Simulation
 ---
 
-------------------
-
-# Problem Statement
-Buggy, also known as Sweepstakes, is a competition where Greek and independent organizations race with their buggies, small, low, aerodynamic vehicles, powered only by gravity and human pushers. At its fastest, a buggy can reach speeds up to 35 miles per hour. And yes - there's a person in there! 
+Buggy — Sweepstakes, properly — is a CMU race in which small aerodynamic
+vehicles are pushed uphill by runners and coast the downhills on gravity alone,
+hitting around 35 mph. There is a person inside steering.
 
 <div class="figure">
-    <img src="/images/projects/MCT/track.png" alt="" style="width: 500px">
+    <img src="/images/projects/MCT/track.png" alt="">
+    <div class="figure__caption">The Sweepstakes course.</div>
 </div>
 
-The objective of this project was to experiment with different forms of controllers for buggies not driven by humans. The buggies were modelled after the standard bicycle model. Lateral and Longitudinal dynamics were defined. A simulation platform was setup on Webots which accepted data from controllers designed by us.
+This project asked what happens when the person is replaced by a controller. The
+buggy was modelled with bicycle dynamics — lateral and longitudinal — and driven
+around a Webots simulation of the course. Five controllers were then built in
+order of increasing capability, each one addressing a specific way the previous
+one lost time.
 
 <div class="figure">
     <img src="/images/projects/MCT/SimulationFlow.png" alt="">
+    <div class="figure__caption">Controllers issue commands to the Webots simulation and receive state back.</div>
 </div>
 
-Over the course of the project, we experimented with five different control schemes, each with increasing complexity and better returns than their predecessors. 
------
-# Stage 1: PID Controllers
-A PID controller is a key mechanism in industrial control systems, managing processes through three components: Proportional, Integral, and Derivative. The Proportional component generates an output proportional to the current error (the difference between the desired setpoint and the actual process variable), helping to reduce the error. 
+## Results
 
-The Integral component tackles the steady-state error by accumulating the error over time, ensuring persistent errors are corrected, which helps bring the process variable closer to the setpoint. 
+| Controller | Lap time | What changed |
+|---|---|---|
+| PID | 330 s | Separate longitudinal and lateral loops, tuned by hand. |
+| State feedback, pole placement | 200 s | Uses the full state vector rather than tracking error alone, with closed-loop poles placed for damping. |
+| LQR | 120 s | Optimal gains from the Riccati equation, trading state error against control effort. |
+| MPC | 120 s | Optimizes over a receding horizon, so track constraints enter the control problem directly. |
+| EKF-SLAM | 160 s | Same control quality without being given the map or its own pose. |
 
-The Derivative component predicts future error trends by considering the rate of change of the error, providing a damping effect that reduces overshoot and improves stability. 
+The first three steps are the interesting part of the progression. Hand-tuned
+PID loses time everywhere because the two axes are tuned in isolation and
+neither knows what the other is doing. Pole placement recovers most of that by
+treating the buggy as one coupled system. LQR takes it further still by choosing
+gains rather than guessing them — the largest single improvement in the set, and
+close to halving the lap.
+
 <div class="figure">
-    <img src="/images/projects/MCT/PID.png" alt="" style="width: 500px">
+    <img src="/images/projects/MCT/lqr.png" alt="">
+    <div class="figure__caption">LQR tracking through the course.</div>
 </div>
-For our problem, the PID values were tuned for the longitudinal and lateral controllers, resulting in a laptime of 330 seconds.
------
-# Stage 2: State Feedback Controller With Pole Placement
-A State Feedback Controller with Pole Placement is a control strategy used to achieve desired dynamic performance in control systems. It involves using the full state vector, which includes all the state variables of the system, to compute the control input. The control law typically takes the form \( u(t) = -Kx(t) + r(t) \), where \( u(t) \) is the control input, \( K \) is the state feedback gain matrix, \( x(t) \) is the state vector, and \( r(t) \) is the reference input. The objective is to design the gain matrix \( K \) so that the poles of the closed-loop system, which are the eigenvalues of the matrix \( A - BK \) (where \( A \) is the system matrix and \( B \) is the input matrix), are placed at specific locations in the s-plane (complex plane). These pole locations are chosen based on desired system characteristics such as stability, response time, and damping.
 
-The design process involves determining the desired pole locations according to performance specifications and then computing the gain matrix \( K \) using methods like Ackermann's formula or solving a set of linear equations. This approach allows for precise control over the system dynamics, enabling the designer to tailor the system's performance to meet specific requirements. The main advantage of this method is its ability to provide exact control over the placement of the closed-loop poles, thereby ensuring the system behaves in a predictable and stable manner. 
+MPC matched LQR rather than beating it. On a fixed, known course with a
+well-behaved model there is little left for a receding horizon to exploit — its
+advantage is handling constraints and disturbances, and this track presents few
+of either. It would be expected to pull ahead on a course with tighter limits or
+a less cooperative model.
 
-Our tuned controller saw a laptime of 200 seconds.
-
------
-# Stage 3: Linear Quadratic Controller
-A Linear Quadratic Regulator (LQR) is an optimal control strategy used in linear systems to minimize a cost function, typically involving both state and control input variables. The goal of LQR is to find the control law  u(t) = -Kx(t) that minimizes the quadratic cost function, where x  is the state vector, u is the control input, Q is a positive semi-definite matrix weighting the state vector, and R  is a positive definite matrix weighting the control input. By carefully choosing Q and R, designers can balance the trade-off between the performance of the system (keeping the states small) and the effort required (keeping the control inputs small).
 <div class="figure">
-    <img src="/images/projects/MCT/lqr.png" alt="" style="width: 500px">
+    <img src="/images/projects/MCT/mpc.png" alt="">
+    <div class="figure__caption">MPC optimizing over a receding horizon.</div>
 </div>
-The LQR design process involves solving the algebraic Riccati equation to find the optimal gain matrix K. This matrix K is then used to compute the control input that drives the system towards the desired performance. The primary advantage of LQR is its ability to systematically and optimally handle the trade-offs between state deviations and control efforts, ensuring a robust and efficient control system. LQR is widely used in various applications, including aerospace, robotics, and economics, due to its effectiveness and mathematical rigor.
 
-The best LQR controller had a laptime of 120 seconds.
+## Racing without a map
 
------
-# Stage 4: Model predictive Controller
-A Model Predictive Controller (MPC) is an advanced control strategy that optimizes the control input by solving a finite horizon optimization problem at each time step. MPC uses a dynamic model of the system to predict future behavior over a specified prediction horizon. At each time step, the controller computes the control inputs by minimizing a cost function that typically includes terms for tracking error and control effort, subject to constraints on the inputs and states.
-<div class="figure">
-    <img src="/images/projects/MCT/mpc.png" alt="" style="width: 500px">
-</div>
-The main advantage of MPC is its ability to handle multi-variable control problems and incorporate constraints directly into the control design, making it suitable for complex industrial processes. By repeatedly solving the optimization problem as the system evolves, MPC can adjust the control inputs in real-time to account for changes and disturbances, ensuring optimal performance and robustness. This makes MPC widely used in process control, automotive applications, and energy management systems.
+The last controller solves a harder problem than the other four. EKF-SLAM builds
+the map and estimates the buggy's pose within it at the same time, so the
+controller is steering against an estimate that is itself uncertain, rather than
+against ground truth handed to it by the simulator.
 
-The best MPC controller had a laptime of 120 seconds.
-
------
-# Stage 5: Extended Kalman Filter Simultaneous Localization and Mapping
-Extended Kalman Filter Simultaneous Localization and Mapping (EKF-SLAM) is a method used in robotics for building a map of an unknown environment while simultaneously keeping track of the robot's location within that map. The Extended Kalman Filter (EKF) is an extension of the Kalman Filter that linearize the nonlinear models of the robot's motion and sensor measurements, enabling it to handle the inherent nonlinearity in SLAM.
-
-In EKF-SLAM, the state vector includes both the robot's pose (position and orientation) and the locations of landmarks in the environment. The EKF uses the robot's motion model to predict the state and the sensor measurements to update the state, reducing uncertainty over time. This approach ensures that the robot can navigate and map the environment accurately, even in the presence of noise and uncertainty. EKF-SLAM is widely used in autonomous navigation for applications like mobile robots, drones, and self-driving cars due to its effectiveness in real-time mapping and localization.
 <div class="figure">
     <img src="/images/projects/MCT/ekfslam.png" alt="">
+    <div class="figure__caption">Landmarks and pose estimated together during a run.</div>
 </div>
-For the EKF SLAM the problem was compounded in terms of challenges. The best controller achieved a laptime of 160 seconds while managing the additional complexities.
+
+Read as a single column, 160 s looks like a regression from LQR's 120 s. It
+isn't — it is the cost of dropping the assumption that the vehicle knows where
+it is, which is the assumption that matters most if any of this is ever going to
+leave the simulator.

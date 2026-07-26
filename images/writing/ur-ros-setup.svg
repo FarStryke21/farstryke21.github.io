@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-labelledby="t d">
+  <title id="t">Connecting a Universal Robot to ROS</title>
+  <desc id="d">Topology diagram: the UR5e controller on the robot side, connected over Ethernet to ur_robot_driver and MoveIt running on the workstation.</desc>
+
+  <style><![CDATA[
+    /* Mirrors _sass/_tokens.scss. An SVG loaded through an img element cannot
+       read custom properties from the page, so the palette is restated here.
+       Its own prefers-color-scheme query still fires. Keep in sync. */
+    :root {
+      --bg    : #eceef2;
+      --line  : #c8cdd6;
+      --text  : #15181d;
+      --muted : #59606e;
+      --accent: #a8192b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg    : #1e222b;
+        --line  : #3a4150;
+        --text  : #e7e9ee;
+        --muted : #9aa2b1;
+        --accent: #ff7b86;
+      }
+    }
+    .lbl  { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .meta { font-size: 25px; font-weight: 600; fill: var(--muted); letter-spacing: 0.09em; }
+    .name { font-size: 44px; font-weight: 700; fill: var(--text); letter-spacing: -0.01em; }
+    .sub  { font-size: 26px; font-weight: 400; fill: var(--muted); }
+    .wire { font-size: 24px; font-weight: 500; fill: var(--muted); }
+    .box  { fill: none; stroke: var(--accent); stroke-width: 3.5; opacity: 0.85; }
+  ]]></style>
+
+  <rect width="1200" height="750" fill="var(--bg)"/>
+
+  <text class="lbl meta" x="60" y="78">UNIVERSAL ROBOT + ROS · SETUP</text>
+
+  <!-- robot / workstation divide, broken where the link crosses it -->
+  <g stroke="var(--line)" stroke-width="2" stroke-dasharray="6 9">
+    <line x1="402" y1="185" x2="402" y2="300"/>
+    <line x1="402" y1="450" x2="402" y2="565"/>
+  </g>
+  <text class="lbl meta" x="380" y="165" text-anchor="end">ROBOT</text>
+  <text class="lbl meta" x="424" y="165">WORKSTATION</text>
+
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+
+  <!-- links -->
+  <g stroke="var(--muted)" stroke-width="2.5" marker-end="url(#ah)" marker-start="url(#ah)">
+    <line x1="358" y1="350" x2="447" y2="350"/>
+    <line x1="753" y1="350" x2="842" y2="350"/>
+  </g>
+  <text class="lbl wire" x="402" y="405" text-anchor="middle">Ethernet</text>
+  <text class="lbl wire" x="797" y="405" text-anchor="middle">actions</text>
+
+  <!-- nodes -->
+  <g text-anchor="middle">
+    <rect class="box" x="60" y="250" width="290" height="200" rx="16"/>
+    <text class="lbl name" x="205" y="345">UR5e</text>
+    <text class="lbl sub"  x="205" y="392">robot controller</text>
+
+    <rect class="box" x="455" y="250" width="290" height="200" rx="16"/>
+    <text class="lbl name" x="600" y="345">ROS driver</text>
+    <text class="lbl sub"  x="600" y="392">ur_robot_driver</text>
+
+    <rect class="box" x="850" y="250" width="290" height="200" rx="16"/>
+    <text class="lbl name" x="995" y="345">MoveIt</text>
+    <text class="lbl sub"  x="995" y="392">motion planning</text>
+  </g>
+
+  <text class="lbl meta" x="600" y="640" text-anchor="middle">/joint_states · /follow_joint_trajectory</text>
+</svg>

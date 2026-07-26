@@ -20,24 +20,40 @@ tags:
   </a>
 </div>
 
-<h2>Overview</h2>
-
 <p>
-  Developed as part of a semester-long mechatronics capstone, the <b>BlackFlag</b>
-  utility robot is a solution for operational support on large marine vessels.
-  The objective was a system robust enough to conduct routine inspections and
-  execute intricate operations aboard cargo vessels while withstanding the harsh
-  marine environment.
-</p>
-
-<p>
-  The robot pairs a 5-degree-of-freedom revolute arm with a mobile base and a
-  custom perception package. As a member of the five-person team, I led the
-  <b>Perception and Sensing Subsystem</b>, overseeing software integration and
-  the final deployment of the working system.
+  Cargo vessels need routine checks — valves, gauges, breakers — carried out in
+  cramped, corroded, moving spaces that are unpleasant to send a person into and
+  unpleasant for hardware to survive. <b>BlackFlag</b> was our answer to that
+  brief: a utility robot built over a semester-long mechatronics capstone, with
+  enough dexterity to operate ship fittings and enough robustness to keep
+  working in a marine environment.
 </p>
 
 <div class="figure">
   <img src="/images/projects/Shipbot/icon.png" alt="">
   <div class="figure__caption">The BlackFlag marine vessel support robot.</div>
 </div>
+
+<p>
+  The system pairs a 5-degree-of-freedom revolute arm with a mobile base and a
+  custom perception package. Five degrees of freedom is the interesting
+  constraint: it is one short of being able to reach an arbitrary pose, so the
+  arm has to be positioned by the base rather than solving for reach on its own
+  — which makes navigation and manipulation a single coupled problem instead of
+  two separate ones.
+</p>
+
+<h2>My role</h2>
+
+<p>
+  I led the <b>perception and sensing subsystem</b> across the five-person team,
+  and took on software integration and the final deployment of the working
+  system. Perception is what tells the arm where a valve actually is, as opposed
+  to where the model says it should be — the gap that decides whether a
+  manipulation attempt succeeds or scrapes past.
+</p>
+
+<p>
+  Full build details, subsystem breakdowns and demonstration footage are on the
+  team's project site.
+</p>

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-labelledby="t d">
+  <title id="t">A manipulator trajectory as timestamped waypoints</title>
+  <desc id="d">An end-effector path sampled at equal time intervals from 0.0s to 1.0s. The waypoints bunch at the ends and spread through the middle, which is what a trapezoidal velocity profile looks like.</desc>
+
+  <style><![CDATA[
+    /* Mirrors _sass/_tokens.scss. An SVG loaded through an img element cannot
+       read custom properties from the page, so the palette is restated here.
+       Its own prefers-color-scheme query still fires. Keep in sync. */
+    :root {
+      --bg    : #eceef2;
+      --line  : #c8cdd6;
+      --text  : #15181d;
+      --muted : #59606e;
+      --accent: #a8192b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg    : #1e222b;
+        --line  : #3a4150;
+        --text  : #e7e9ee;
+        --muted : #9aa2b1;
+        --accent: #ff7b86;
+      }
+    }
+    .lbl  { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .meta { font-size: 25px; font-weight: 600; fill: var(--muted); letter-spacing: 0.09em; }
+    .tick { font-size: 30px; font-weight: 500; fill: var(--muted); }
+  ]]></style>
+
+  <rect width="1200" height="750" fill="var(--bg)"/>
+
+  <text class="lbl meta" x="60" y="78">MANIPULATOR TRAJECTORY · ROS</text>
+  <text class="lbl meta" x="1140" y="78" text-anchor="end">UR5e</text>
+
+  <!-- each waypoint drops to its own timestamp -->
+  <g stroke="var(--line)" stroke-width="2" stroke-dasharray="5 8">
+    <line x1="140"  y1="530" x2="140"  y2="596"/>
+    <line x1="228"  y1="423" x2="228"  y2="596"/>
+    <line x1="458"  y1="229" x2="458"  y2="596"/>
+    <line x1="742"  y1="164" x2="742"  y2="596"/>
+    <line x1="972"  y1="253" x2="972"  y2="596"/>
+    <line x1="1060" y1="320" x2="1060" y2="596"/>
+  </g>
+
+  <!-- the end-effector path -->
+  <path d="M 140 530 Q 600 -80 1060 320"
+        fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- waypoints, sampled at equal time intervals -->
+  <g fill="var(--accent)">
+    <circle cx="140"  cy="530" r="9"/>
+    <circle cx="228"  cy="423" r="9"/>
+    <circle cx="458"  cy="229" r="9"/>
+    <circle cx="742"  cy="164" r="9"/>
+    <circle cx="972"  cy="253" r="9"/>
+    <circle cx="1060" cy="320" r="9"/>
+  </g>
+
+  <!-- time axis -->
+  <line x1="100" y1="600" x2="1100" y2="600" stroke="var(--line)" stroke-width="2"/>
+  <g stroke="var(--muted)" stroke-width="2.5">
+    <line x1="140"  y1="592" x2="140"  y2="608"/>
+    <line x1="228"  y1="592" x2="228"  y2="608"/>
+    <line x1="458"  y1="592" x2="458"  y2="608"/>
+    <line x1="742"  y1="592" x2="742"  y2="608"/>
+    <line x1="972"  y1="592" x2="972"  y2="608"/>
+    <line x1="1060" y1="592" x2="1060" y2="608"/>
+  </g>
+  <g class="lbl tick" text-anchor="middle">
+    <text x="140"  y="650">0.0s</text>
+    <text x="228"  y="650">0.2s</text>
+    <text x="458"  y="650">0.4s</text>
+    <text x="742"  y="650">0.6s</text>
+    <text x="972"  y="650">0.8s</text>
+    <text x="1060" y="650">1.0s</text>
+  </g>
+
+  <text class="lbl meta" x="600" y="715" text-anchor="middle">EQUAL TIME STEPS · UNEQUAL DISTANCE = VELOCITY</text>
+</svg>

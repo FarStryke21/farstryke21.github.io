@@ -7,82 +7,164 @@ redirect_from:
   - /coursework
 ---
 
+<p class="lede">
+  Graduate coursework in robotics, controls, perception and learning. Where a
+  course produced work I can show, it is linked.
+</p>
+
+{% comment %}
+  Course numbers appear only where they are confirmed. To add one, drop a
+  <span class="course__code">24-XXX</span> into that course's __head.
+{% endcomment %}
+
 <div class="semester">
-    <h2>Spring 2024</h2>
-    <div class="course">
-        <div class="course-title">Trustworthy AI Autonomy</div>
-        <div class="course-description">This advanced course addresses the critical challenge of ensuring safety in AI-driven autonomy, covering topics like adversarial defense, generative models, and safe reinforcement learning. It equips students with research skills to explore cutting-edge trustworthy AI methods and their applications in real-world systems like self-driving cars and healthcare devices. Designed for research-oriented students in machine learning, robotics, and human-machine interaction, the course fosters team-based research capabilities essential for developing secure and reliable autonomous systems.</div>
-        <div class="professor">Instructor: <a href="https://www.meche.engineering.cmu.edu/directory/bios/zhao-ding.html">Dr. Ding Zhao</a></div>
-    </div>
-    <div class="course">
-        <div class="course-title">Learning for 3D Vision</div>
-        <div class="course-description">This course focuses on integrating 3D perception and learning techniques crucial for autonomous agents operating in complex environments. It explores advancements like differentiable rendering and single-view 3D prediction, essential for applications spanning robotics, self-driving, virtual reality, and computer vision.</div>
-        <div class="professor">Instructor: <a href="https://shubhtuls.github.io/">Dr. Shumbham Tulsiani</a></div>
-    </div>
+  <h2 class="semester__title">Spring 2024</h2>
+  <ul class="courses">
+
+    <li class="course">
+      <div class="course__head">
+        <span class="course__code">16-825</span>
+        <h3 class="course__name">Learning for 3D Vision</h3>
+        <span class="course__prof"><a href="https://shubhtuls.github.io/">Shubham Tulsiani</a></span>
+      </div>
+      <ul class="course__outputs">
+        <li><a href="/projects/7_gaussian_splatting/">Gaussian Splatting</a></li>
+        <li><a href="/projects/5_volume_rendering/">Volume Rendering &amp; NeRF</a></li>
+        <li><a href="/projects/1_diffusion_models/">Building a Diffusion Model</a></li>
+        <li><a href="/projects/9_SD_PoseEstimation/">Pose Estimation through Stable Diffusion</a></li>
+      </ul>
+    </li>
+
+    <li class="course">
+      <div class="course__head">
+        <h3 class="course__name">Trustworthy AI Autonomy</h3>
+        <span class="course__prof"><a href="https://www.meche.engineering.cmu.edu/directory/bios/zhao-ding.html">Ding Zhao</a></span>
+      </div>
+      <ul class="course__outputs">
+        <li><a href="/projects/8_SAC_Carla/">SAC Policy for Autonomous Vehicles</a></li>
+      </ul>
+    </li>
+
+  </ul>
 </div>
 
 <div class="semester">
-    <h2>Fall 2023</h2>
-    <div class="course">
-        <div class="course-title">Planning and Decision making in Robotics</div>
-        <div class="course-description">This course delves into algorithmic techniques essential for planning and decision-making in robotics, encompassing path planning, motion planning, and task planning across various robotic platforms. It explores real-world applications in ground and aerial robots, humanoids, mobile manipulation, and multi-robot systems, enhancing understanding and implementation of autonomous robotic capabilities. </div>
-        <div class="professor">Instructor: <a href="http://www.cs.cmu.edu/~maxim/">Dr. Maxim Likhachev</a></div>
-    </div>
-    <div class="course">
-        <div class="course-title">Introduction to Robot Learning</div>
-        <div class="course-description">This course explores essential topics in robot learning, focusing on machine/deep/reinforcement learning and visual learning for decision-making in diverse environments. Students will gain proficiency in reinforcement learning techniques (model-based, model-free), imitation learning, visual cognition, and simulation-based policy transfer, with insights from neuroscience and psychology informing cognitive approaches in decision making.</div>
-        <div class="professor">Instructor: <a href="https://www.cs.cmu.edu/~dpathak/">Dr. Deepak Pathak</a></div>
-    </div>
+  <h2 class="semester__title">Fall 2023</h2>
+  <ul class="courses">
+
+    <li class="course">
+      <div class="course__head">
+        <span class="course__code">16-782</span>
+        <h3 class="course__name">Planning and Decision Making in Robotics</h3>
+        <span class="course__prof"><a href="http://www.cs.cmu.edu/~maxim/">Maxim Likhachev</a></span>
+      </div>
+      <ul class="course__outputs">
+        <li><a href="/projects/3_16782/">Lifelong Multi-Agent Planning with CBS</a></li>
+      </ul>
+    </li>
+
+    <li class="course">
+      <div class="course__head">
+        <span class="course__code">16-831</span>
+        <h3 class="course__name">Introduction to Robot Learning</h3>
+        <span class="course__prof"><a href="https://www.cs.cmu.edu/~dpathak/">Deepak Pathak</a></span>
+      </div>
+      <ul class="course__outputs">
+        <li><a href="/projects/4_MARL/">Multi-Agent RL for Warehouses</a></li>
+      </ul>
+    </li>
+
+  </ul>
 </div>
 
 <div class="semester">
-    <h2>Spring 2023</h2>
-    <div class="course">
-        <div class="course-title">Mechatronics Design</div>
-        <div class="course-description">This course focuses on integrating mechanical, electronic, and computer control systems through hands-on laboratory projects. It covers operational principles and system design for mechatronic systems, emphasizing practical implementation and theoretical understanding.</div>
-        <div class="professor">Instructor: <a href="https://www.ri.cmu.edu/ri-faculty/cameron-riviere/">Dr. Cameron Riviere</a> and <a href="https://www.ri.cmu.edu/ri-faculty/zeynep-temel/">Dr. Zeynep Temel</a></div>
-    </div>
-    <div class="course">
-        <div class="course-title">Optimal Control and Reinforcement Learning</div>
-        <div class="course-description">This course explores methods for enhancing robotic motion and interaction in diverse environments, covering nonlinear dynamics, optimal control, state estimation, and reinforcement learning. Students gain practical skills through hands-on applications across different robotic systems, enabling them to apply these concepts effectively in research and development.</div>
-        <div class="professor">Instructor: <a href="https://www.ri.cmu.edu/ri-faculty/zachary-manchester/">Dr. Zachary Manchester</a></div>
-    </div>
+  <h2 class="semester__title">Spring 2023</h2>
+  <ul class="courses">
+
+    <li class="course">
+      <div class="course__head">
+        <span class="course__code">16-745</span>
+        <h3 class="course__name">Optimal Control and Reinforcement Learning</h3>
+        <span class="course__prof"><a href="https://www.ri.cmu.edu/ri-faculty/zachary-manchester/">Zachary Manchester</a></span>
+      </div>
+      <ul class="course__outputs">
+        <li><a href="/projects/OCRL/">Lap Time Optimization for Formula One Cars</a></li>
+      </ul>
+    </li>
+
+    <li class="course">
+      <div class="course__head">
+        <h3 class="course__name">Mechatronics Design</h3>
+        <span class="course__prof">
+          <a href="https://www.ri.cmu.edu/ri-faculty/cameron-riviere/">Cameron Riviere</a> ·
+          <a href="https://www.ri.cmu.edu/ri-faculty/zeynep-temel/">Zeynep Temel</a>
+        </span>
+      </div>
+      <ul class="course__outputs">
+        <li><a href="/projects/2_Shipbot/">Marine Vessel Support Robot</a></li>
+      </ul>
+    </li>
+
+  </ul>
 </div>
 
 <div class="semester">
-    <h2>Fall 2022</h2>
-    <div class="course">
-        <div class="course-title">Machine Learning and Artificial Intelligence</div>
-        <div class="course-description">This course covers foundational machine learning and AI techniques essential for engineers, including Bayesian learning, neural networks, SVMs, clustering, regression, and optimization. Emphasis is on theoretical foundations and mathematical modeling to equip students with robust problem-solving skills for data-intensive applications.</div>
-        <div class="professor">Instructor: <a href="https://sites.google.com/view/barati/team?authuser=0">Dr. Amir Barati Farimani</a></div>
-    </div>
-    <div class="course">
-        <div class="course-title">Modern Control Theory</div>
-        <div class="course-description">This course provides a hands-on approach to model-based control design for linear systems, covering state-variable modeling, linear algebra fundamentals, and design techniques like LQR, MPC, and Kalman filters. Students gain practical skills in analyzing and implementing controllers and observers for dynamic systems.</div>
-        <div class="professor">Instructor: <a href="https://www.andrew.cmu.edu/user/capn/">Prof. Mark Bedellion</a></div>
-    </div>
-    <div class="course">
-        <div class="course-title">Computer Vision</div>
-        <div class="course-description">This course introduces foundational concepts and practical applications of computer vision, covering sensor selection, image processing, motion analysis, 3D reconstruction, point cloud processing, feature tracking, and object detection. Students gain theoretical and practical knowledge essential for applying computer vision in diverse engineering fields like automation, robotics, and medical imaging.</div>
-        <div class="professor">Instructor: <a href="https://www.andrew.cmu.edu/user/shimada/">Dr. Kenji Shimada</a></div>
-    </div>
+  <h2 class="semester__title">Fall 2022</h2>
+  <ul class="courses">
+
+    <li class="course">
+      <div class="course__head">
+        <h3 class="course__name">Computer Vision</h3>
+        <span class="course__prof"><a href="https://www.andrew.cmu.edu/user/shimada/">Kenji Shimada</a></span>
+      </div>
+      <ul class="course__outputs">
+        <li><a href="/projects/PanelGap_CV/">Panel Gap Identification for Automobiles</a></li>
+      </ul>
+    </li>
+
+    <li class="course">
+      <div class="course__head">
+        <h3 class="course__name">Modern Control Theory</h3>
+        <span class="course__prof"><a href="https://www.andrew.cmu.edu/user/capn/">Mark Bedillion</a></span>
+      </div>
+      <ul class="course__outputs">
+        <li><a href="/projects/MCT/">Controllers for Buggy Racing</a></li>
+      </ul>
+    </li>
+
+    <li class="course">
+      <div class="course__head">
+        <h3 class="course__name">Machine Learning and Artificial Intelligence</h3>
+        <span class="course__prof"><a href="https://sites.google.com/view/barati/team?authuser=0">Amir Barati Farimani</a></span>
+      </div>
+    </li>
+
+  </ul>
 </div>
 
 <div class="semester">
-    <h2>Audits and Extra Courses</h2>
-    <div class="course">
-        <div class="course-title">Localization and Mapping</div>
-        <div class="course-description">This course delves into the challenges of robot localization, mapping, and SLAM, focusing on efficient probabilistic inference methods and state-of-the-art systems. Students gain insights into handling sensor uncertainty and achieving real-time localization and mapping in mobile robotics applications.</div>
-        <div class="professor">Instructor: <a href="https://www.ri.cmu.edu/ri-faculty/michael-kaess/">Dr. Michael Kaess</a></div>
-    </div>
-    <div class="course">
-        <div class="course-title">Prototyping for Equity</div>
-        <div class="course-description">This course integrates prototyping techniques with safe operation of fabrication tools like 3D printers, laser cutters, and power tools. Students apply the engineering design cycle to create products tailored for underserved user populations, emphasizing practical skills in fabrication and design iteration.</div>
-        <div class="professor">Instructor: <a href="https://www.meche.engineering.cmu.edu/directory/bios/haidar-diana.html">Dr. Diana Haidar</a></div>
-    </div>
-    <div class="course">
-        <div class="course-title">Manual Machining</div>
-        <div class="course-description">This course familiarizes students with the operation and safety of machine tools. This gives students knowledge of what goes into engineering designs in building a prototype and also enables them to operate shop machinery as a part of future courses.</div>
-    </div>
-</div>
+  <h2 class="semester__title">Audited</h2>
+  <ul class="courses">
 
+    <li class="course">
+      <div class="course__head">
+        <h3 class="course__name">Localization and Mapping</h3>
+        <span class="course__prof"><a href="https://www.ri.cmu.edu/ri-faculty/michael-kaess/">Michael Kaess</a></span>
+      </div>
+    </li>
+
+    <li class="course">
+      <div class="course__head">
+        <h3 class="course__name">Prototyping for Equity</h3>
+        <span class="course__prof"><a href="https://www.meche.engineering.cmu.edu/directory/bios/haidar-diana.html">Diana Haidar</a></span>
+      </div>
+    </li>
+
+    <li class="course">
+      <div class="course__head">
+        <h3 class="course__name">Manual Machining</h3>
+      </div>
+    </li>
+
+  </ul>
+</div>
